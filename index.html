@@ -334,6 +334,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .final-copy .lead{font-size:clamp(14px,1.15vw,16px)}
 #cierre .hero-meta{margin:20px 0 22px}
 @media (max-width:920px){.final-grid{grid-template-columns:minmax(0,1fr)}#cierre .stage{justify-self:center;max-width:460px}}
+
+/* inicio: fondo oscuro con degradé (sin textura) */
+.hero{background:radial-gradient(900px 620px at 82% 30%,rgba(93,219,136,.09),transparent 65%),radial-gradient(700px 500px at 8% 85%,rgba(31,101,54,.14),transparent 70%),linear-gradient(180deg,#0B0F0D 0%,#0D1310 100%)}
 /* sticky cta mobile */
 .m-cta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
 .m-cta .btn{width:100%;justify-content:center}
@@ -402,7 +405,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 <main id="top">
 <!-- ================= HERO + FORMULARIO ================= -->
 <section class="hero">
-  <div class="hero-roots" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-intro">
       <span class="pill" data-hero><span class="live-dot"></span>Webinar en vivo · 5 de noviembre</span>
