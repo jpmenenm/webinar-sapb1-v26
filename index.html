@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinar SAP Business One v26.1 · Webhooks & Eventos en Tiempo Real · DOT Solutions</title>
+<meta name="description" content="Webinar en vivo, jueves 5 de noviembre. Descubre cómo los Webhooks de SAP Business One v26.1 notifican a tus sistemas cuando ocurre un evento y conectan tu ERP en tiempo real con e-commerce, CRM, WMS, aplicaciones móviles y portales de clientes.">
+<meta property="og:title" content="SAP Business One v26.1: Webhooks & Eventos en Tiempo Real">
+<meta property="og:description" content="Webinar en vivo · Jueves 5 de noviembre · 11:00 CL · 09:00 PE · 11:00 AR · Google Meet">
+<meta name="theme-color" content="#0B0F0D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0F0D; --ink-2:#0F1512; --ink-3:#141B17;
+  --mic:#5DDB88; --mic-2:#7BE6A0; --moss:#1F6536; --forest:#0D3518; --sage:#B4C1A3;
+  --light:#EBE9E3; --muted:rgba(235,233,227,.66); --faint:rgba(235,233,227,.42);
+  --cyan:#3FD8D0;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --glass:rgba(13,19,16,.62);
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --pad:clamp(20px,5vw,72px);
+  --maxw:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:"Poppins",system-ui,sans-serif;color:var(--light);background:var(--ink);font-weight:300;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--mic);color:var(--ink)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- fondo global ---------- */
+.bg-fixed{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:96px 96px;opacity:.45;mask-image:radial-gradient(ellipse at 50% 20%,#000 0%,transparent 75%)}
+.bg-glow{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(93,219,136,.18),transparent 65%);filter:blur(10px)}
+
+/* ---------- componentes ---------- */
+.btn{display:inline-flex;align-items:center;gap:12px;border:0;cursor:pointer;border-radius:999px;font-weight:600;letter-spacing:.01em;transition:transform .25s ease,box-shadow .25s ease,background .25s}
+.btn-primary{background:var(--mic);color:#0B120D;padding:16px 26px 16px 30px;font-size:16px;box-shadow:0 10px 40px -10px rgba(93,219,136,.55)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 50px -10px rgba(93,219,136,.75);background:var(--mic-2)}
+.btn-primary svg{transition:transform .25s}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{padding:15px 24px;border:1px solid var(--line-2);background:rgba(255,255,255,.02);font-weight:500;font-size:15px}
+.btn-ghost:hover{border-color:rgba(93,219,136,.5);background:rgba(93,219,136,.06)}
+.btn-sm{padding:11px 18px 11px 20px;font-size:14px}
+.hero-cta .btn-hero{padding:14px 22px 14px 26px;font-size:15px}
+.hero-cta .btn-ghost{padding:13px 20px;font-size:14px}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(93,219,136,.45);background:rgba(93,219,136,.07);backdrop-filter:blur(12px)}
+.live-dot{position:relative;width:8px;height:8px;border-radius:50%;background:var(--mic)}
+.live-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--mic);animation:ping 1.8s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.2);opacity:0}}
+.chip{display:inline-block;background:var(--mic);color:#0B120D;font-weight:600;font-size:15px;padding:7px 14px;border-radius:8px}
+.kicker{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--mic)}
+.glass{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.grad-border{position:relative}
+.grad-border::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(93,219,136,.55),rgba(255,255,255,.06) 35%,rgba(255,255,255,.04) 65%,rgba(63,216,208,.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.h2{font-size:clamp(32px,4.6vw,56px);line-height:1.04;font-weight:600;letter-spacing:-.02em}
+.h2 em{font-style:normal;color:var(--mic)}
+.lead{color:var(--muted);font-size:clamp(16px,1.4vw,18px);max-width:620px}
+section{position:relative;padding:clamp(80px,11vw,140px) 0}
+.sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(40px,5vw,64px)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:14px;left:0;right:0;z-index:50;padding:0 var(--pad)}
+.nav-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 22px;border-radius:999px;transition:background .3s,border-color .3s}
+.nav.scrolled .nav-in{background:rgba(11,15,13,.72);border:1px solid var(--line);backdrop-filter:blur(18px)}
+.nav:not(.scrolled) .nav-in{border:1px solid transparent}
+.lockup{display:flex;align-items:center;gap:14px}
+.lockup .dot{height:22px;width:auto}
+.lockup .div{width:1px;height:22px;background:rgba(235,233,227,.35)}
+.lockup .sap{height:22px;width:auto}
+.nav-right{display:flex;align-items:center;gap:14px}
+.gold{height:34px;width:auto}
+
+/* ---------- hero ---------- */
+.hero{padding-top:104px;padding-bottom:36px;min-height:100svh;display:flex;align-items:center}
+.hero-roots{position:absolute;inset:0;background:url(assets/raices.jpg) center 30%/cover no-repeat;opacity:.24;mask-image:linear-gradient(180deg,transparent 0%,#000 25%,#000 60%,transparent 100%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,3.5vw,56px);align-items:center;position:relative}
+.hero h1{font-size:clamp(36px,4.7vw,66px);line-height:.98;font-weight:600;letter-spacing:-.03em;margin:16px 0 14px}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l>span{display:inline-block}
+.hero h1 .g{color:var(--mic)}
+.hero .sub{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:clamp(15px,1.3vw,18px);font-weight:500;letter-spacing:-.01em;margin-bottom:12px}
+.hero .sub .chip{font-size:13px;padding:6px 12px}
+.hero .lead{font-size:clamp(14px,1.1vw,16px);max-width:560px}
+.hero .sub small{color:var(--sage);font-weight:300}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 20px}
+.meta{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:12px;font-size:13px}
+.meta .ic{width:26px;height:26px;border-radius:8px;background:var(--mic);display:grid;place-items:center;flex:none}
+.meta .ic svg{width:15px;height:15px;stroke:#0B120D}
+.meta b{font-weight:500}
+.meta span{color:var(--faint);font-size:12px;display:block;line-height:1.2}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* countdown */
+.countdown{display:flex;gap:8px;margin-top:22px}
+.cd{min-width:64px;padding:9px 8px 8px;border-radius:14px;text-align:center}
+.cd .n{display:block;font-size:clamp(20px,2vw,28px);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.cd .u{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-top:6px;display:block}
+.cd-label{font-size:12px;color:var(--faint);margin-top:8px}
+
+/* stage (visual de speakers) */
+.stage{position:relative;aspect-ratio:1/1.08;width:100%;max-width:min(500px,calc((100svh - 150px)/1.08));justify-self:end;align-self:center}
+.ring{position:absolute;left:50%;top:44%;width:78%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 200deg,var(--mic),var(--moss) 40%,rgba(31,101,54,.2) 60%,var(--mic));-webkit-mask:radial-gradient(circle,transparent 59%,#000 60%);mask:radial-gradient(circle,transparent 59%,#000 60%);filter:drop-shadow(0 0 40px rgba(93,219,136,.35))}
+.pulse{position:absolute;left:50%;top:44%;width:78%;aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(93,219,136,.45);transform:translate(-50%,-50%) scale(1);animation:pulse 4.5s ease-out infinite;pointer-events:none}
+.pulse.p2{animation-delay:1.5s}.pulse.p3{animation-delay:3s}
+@keyframes pulse{0%{transform:translate(-50%,-50%) scale(.95);opacity:.8}100%{transform:translate(-50%,-50%) scale(1.55);opacity:0}}
+.stage-card{position:absolute;left:0;right:0;bottom:0;height:64%;border-radius:32px;background:linear-gradient(180deg,rgba(31,101,54,.38),rgba(13,53,24,.94));border:1px solid rgba(93,219,136,.4)}
+.stage-people{position:absolute;inset:0;clip-path:inset(-60% 0 0 0 round 32px)}
+.stage-people img{position:absolute;bottom:0;height:74%;width:auto}
+.stage-people .p-carlos{right:-5%}
+.stage-people .p-antonio{left:-5%}
+.stage-fade{position:absolute;left:0;right:0;bottom:0;height:30%;border-radius:0 0 32px 32px;background:linear-gradient(180deg,transparent,rgba(11,15,13,.95))}
+.stage-names{position:absolute;left:24px;right:24px;bottom:20px;display:flex;justify-content:space-between;gap:12px}
+.stage-names div:last-child{text-align:right}
+.stage-names b{display:block;font-weight:600;font-size:clamp(15px,1.5vw,19px)}
+.stage-names span{font-size:12px;color:var(--sage)}
+.float-chip{position:absolute;padding:10px 14px;border-radius:14px;font-size:13px;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.float-chip i{width:8px;height:8px;border-radius:50%;background:var(--mic);box-shadow:0 0 12px var(--mic)}
+.fc1{left:-9%;top:64%}.fc2{right:-5%;top:4%}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;background:rgba(255,255,255,.012)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:marquee 34s linear infinite}
+.marquee span{display:flex;align-items:center;gap:56px;font-size:clamp(16px,1.6vw,20px);font-weight:500;color:var(--muted);white-space:nowrap}
+.marquee span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--mic)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* audiencia */
+.aud-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.aud-grid .card{padding:26px}
+.aud-grid .card h3{font-size:20px}
+.card{border-radius:var(--r-lg);padding:30px;position:relative;overflow:hidden}
+.card.spot::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(93,219,136,.12),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card.spot:hover::after{opacity:1}
+.card .tag{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mic);font-weight:500}
+.card h3{font-size:22px;font-weight:600;line-height:1.2;margin:14px 0 10px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:15px}
+.card ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.card li{font-size:14px;color:var(--light);display:flex;gap:10px;align-items:flex-start}
+.card li::before{content:"";flex:none;margin-top:8px;width:6px;height:6px;border-radius:50%;background:var(--mic)}
+.icon-box{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,rgba(93,219,136,.22),rgba(31,101,54,.25));border:1px solid rgba(93,219,136,.35)}
+.icon-box svg{width:24px;height:24px;stroke:var(--mic)}
+
+/* polling vs webhook */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.flow{border-radius:var(--r-lg);padding:26px 28px}
+.flow h4{font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
+.flow h4 .badge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--line-2);color:var(--faint);font-weight:500}
+.flow.good h4 .badge{border-color:rgba(93,219,136,.5);color:var(--mic)}
+.lane{display:flex;align-items:center;gap:12px;margin:22px 0 14px}
+.node{flex:none;padding:10px 14px;border-radius:12px;font-size:13px;font-weight:500;border:1px solid var(--line-2);background:rgba(255,255,255,.03)}
+.flow.good .node.erp{border-color:rgba(93,219,136,.6);background:rgba(93,219,136,.08)}
+.wire{position:relative;flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--line-2) 0 6px,transparent 6px 12px);overflow:visible}
+.flow.good .wire{background:linear-gradient(90deg,rgba(93,219,136,.25),rgba(93,219,136,.6))}
+.wire i{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%)}
+.flow.bad .wire i{background:var(--faint);animation:poll 2.6s ease-in-out infinite}
+.flow.good .wire i{background:var(--mic);box-shadow:0 0 14px var(--mic);animation:push 1.3s cubic-bezier(.6,0,.2,1) infinite}
+@keyframes poll{0%{left:100%;opacity:0}10%{opacity:1}45%{left:0;opacity:1}55%{left:0;opacity:1}90%{left:100%;opacity:1}100%{left:100%;opacity:0}}
+@keyframes push{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:100%;opacity:0}}
+.flow p{font-size:14px;color:var(--muted)}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.benefits .card h3{font-size:19px;margin-top:22px}
+.benefits .card p{font-size:14px}
+.eco{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.eco b{font-size:12px;font-weight:500;padding:5px 10px;border-radius:999px;border:1px solid rgba(93,219,136,.35);color:var(--light)}
+
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.features .wide{grid-column:span 2}
+.features .card h3{font-size:19px;margin-top:22px}
+.features .card p{font-size:14px}
+.benef{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px)}
+.benef-head{position:sticky;top:120px;align-self:start}
+.blist{list-style:none;border-top:1px solid var(--line)}
+.blist li{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid var(--line)}
+.blist .n{font-size:14px;font-weight:600;color:var(--mic);letter-spacing:.12em;padding-top:5px}
+.blist h3{font-size:clamp(19px,1.8vw,23px);font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.blist p{color:var(--muted);font-size:15px}
+/* speakers */
+.spk-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.spk{border-radius:36px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.spk-photo{position:relative;height:clamp(300px,34vw,420px);overflow:hidden}
+.spk-photo::before{content:"";position:absolute;inset:0;background:var(--g)}
+.spk-photo .rings{position:absolute;left:50%;top:58%;width:120%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(235,233,227,.18);box-shadow:0 0 0 60px rgba(235,233,227,.03),0 0 0 120px rgba(235,233,227,.02)}
+.spk-photo img{position:absolute;left:50%;bottom:0;height:96%;width:auto;transform:translateX(-50%);filter:drop-shadow(0 20px 40px rgba(0,0,0,.4))}
+.spk-a{--g:radial-gradient(120% 90% at 50% 100%,#1F6536 0%,#0D3518 45%,#0B0F0D 100%),linear-gradient(160deg,#5DDB88 0%,transparent 55%)}
+.spk-c{--g:radial-gradient(120% 90% at 50% 100%,#3E5A3F 0%,#1B2B1F 45%,#0B0F0D 100%),linear-gradient(160deg,#B4C1A3 0%,transparent 55%)}
+.spk-body{padding:28px 30px 32px;background:var(--ink-2);border-top:1px solid var(--line)}
+.spk-body .topic{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mic);font-weight:500}
+.spk-body h3{font-size:clamp(24px,2.4vw,30px);font-weight:600;letter-spacing:-.01em;margin:10px 0 2px}
+.spk-body .role{color:var(--sage);font-size:15px}
+.spk-body p{color:var(--muted);font-size:15px;margin-top:14px}
+
+/* registro */
+.reg-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:start}
+.perks{list-style:none;display:grid;gap:14px;margin:30px 0}
+.perks li{display:flex;gap:14px;align-items:flex-start;font-size:15px}
+.perks li .ck{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(93,219,136,.14);border:1px solid rgba(93,219,136,.45);display:grid;place-items:center}
+.perks li .ck svg{width:14px;height:14px;stroke:var(--mic)}
+.perks li span{color:var(--muted)}
+.perks li b{font-weight:500;color:var(--light)}
+.event-box{border-radius:var(--r-md);padding:18px 20px;display:grid;gap:10px;font-size:14px}
+.event-box div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:10px}
+.event-box div:last-child{border:0;padding:0}
+.event-box span{color:var(--faint)}
+.form-card{border-radius:32px;padding:clamp(24px,3.4vw,40px)}
+.form-card h3{font-size:24px;font-weight:600;letter-spacing:-.01em}
+.form-card .hint{font-size:14px;color:var(--faint);margin:6px 0 26px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:500;color:var(--muted)}
+.field label i{color:var(--mic);font-style:normal}
+.ctrl{width:100%;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--line-2);outline:none;font-size:15px;font-weight:400;transition:border-color .2s,background .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+.ctrl::placeholder{color:rgba(235,233,227,.32)}
+.ctrl:focus{border-color:rgba(93,219,136,.7);background:rgba(93,219,136,.05);box-shadow:0 0 0 4px rgba(93,219,136,.12)}
+select.ctrl{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235DDB88' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
+select.ctrl option,select.ctrl optgroup{background:#121915;color:var(--light)}
+.phone{display:flex;gap:8px}
+.phone .pre{flex:none;width:86px;text-align:center}
+.field.invalid .ctrl{border-color:#E8735A;box-shadow:0 0 0 4px rgba(232,115,90,.12)}
+.err{font-size:12px;color:#F09A86;min-height:0;display:none}
+.field.invalid .err{display:block}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--muted);cursor:pointer}
+.check input{position:absolute;opacity:0}
+.check .box{flex:none;width:20px;height:20px;border-radius:6px;border:1px solid var(--line-2);display:grid;place-items:center;margin-top:1px;transition:.2s}
+.check .box svg{width:12px;height:12px;stroke:#0B120D;opacity:0}
+.check input:checked+.box{background:var(--mic);border-color:var(--mic)}
+.check input:checked+.box svg{opacity:1}
+.check input:focus-visible+.box{box-shadow:0 0 0 4px rgba(93,219,136,.25)}
+.check a{color:var(--mic);text-decoration:underline;text-underline-offset:3px}
+.field.invalid .check .box{border-color:#E8735A}
+.submit{width:100%;justify-content:center;margin-top:8px;padding:18px}
+.submit[disabled]{opacity:.6;pointer-events:none}
+.form-note{font-size:12px;color:var(--faint);text-align:center;margin-top:12px}
+.success{display:none;text-align:center;padding:20px 0}
+.success.show{display:block}
+.success .big{width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:rgba(93,219,136,.14);border:1px solid rgba(93,219,136,.5);display:grid;place-items:center}
+.success .big svg{width:32px;height:32px;stroke:var(--mic)}
+.success h3{font-size:26px}
+.success p{color:var(--muted);margin:10px auto 24px;max-width:420px}
+.success .cal{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot h5{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mic);font-weight:500;margin-bottom:14px}
+.foot p,.foot a{font-size:14px;color:var(--muted);display:block;margin-bottom:6px}
+.foot a:hover{color:var(--light)}
+.legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--faint)}
+.legal button{background:none;border:0;cursor:pointer;color:var(--faint);text-decoration:underline;text-underline-offset:3px;font-size:12px}
+
+/* modal privacidad */
+.modal{position:fixed;inset:0;z-index:80;display:none;place-items:center;padding:20px;background:rgba(5,8,6,.7);backdrop-filter:blur(6px)}
+.modal.open{display:grid}
+.modal-in{max-width:620px;max-height:80vh;overflow:auto;border-radius:24px;padding:32px}
+.modal-in h3{font-size:22px;margin-bottom:12px}
+.modal-in p{color:var(--muted);font-size:14px;margin-bottom:10px}
+.modal-in .btn{margin-top:10px}
+
+/* sticky cta mobile */
+.m-cta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
+.m-cta .btn{width:100%;justify-content:center}
+
+/* reveal inicial (si JS falla, todo visible) */
+.js [data-reveal]{opacity:0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .benefits,.features,.aud-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fc1{left:-2%}
+}
+@media (max-width:920px){
+  .hero{min-height:auto}
+  .hero-grid,.reg-grid{grid-template-columns:1fr}
+  .stage{justify-self:center;max-width:480px;margin-top:20px}
+  .compare{grid-template-columns:1fr}
+  .benef{grid-template-columns:1fr}
+  .benef-head{position:static}
+  .foot{grid-template-columns:1fr 1fr}
+  .gold{display:none}
+}
+@media (max-width:640px){
+  .nav-right .btn{display:none}
+  .lockup .dot,.lockup .sap,.lockup .div{height:18px}
+  .spk-grid,.benefits,.features,.fgrid,.aud-grid{grid-template-columns:1fr}
+  .features .wide{grid-column:auto}
+  .countdown{gap:8px}
+  .cd{min-width:0;flex:1}
+  .foot{grid-template-columns:1fr}
+  .m-cta{display:block}
+  .float-chip{display:none}
+  footer{padding-bottom:100px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-reveal]{opacity:1}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="bg-fixed" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-glow" style="left:-300px;top:-300px"></div>
+  <div class="bg-glow" style="right:-350px;top:40%;opacity:.7"></div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="lockup" aria-label="DOT Solutions × SAP Business One">
+      <img class="dot" src="assets/logo-blanco.svg" alt="DOT Solutions">
+      <span class="div" aria-hidden="true"></span>
+      <img class="sap" src="assets/sapb1-white.png" alt="SAP Business One">
+    </a>
+    <div class="nav-right">
+      <img class="gold" src="assets/sap-gold-partner.png" alt="SAP Gold Partner">
+      <a href="#registro" class="btn btn-primary btn-sm" data-scroll>Reservar cupo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-roots" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="pill" data-hero><span class="live-dot"></span>Webinar en vivo · 5 de noviembre</span>
+      <h1>
+        <span class="l"><span>Webhooks</span></span>
+        <span class="l"><span class="g">&amp; eventos</span></span>
+        <span class="l"><span>en tiempo real.</span></span>
+      </h1>
+      <p class="sub" data-hero><span class="chip">SAP Business One v26.1</span><small>Arquitectura de eventos para una operación ágil.</small></p>
+      <p class="lead" data-hero>Tu ERP ya no pregunta: se entera. Descubre cómo los Webhooks de SAP Business One v26.1 notifican a tus sistemas <b style="color:var(--light);font-weight:500">cuando ocurre un evento</b> y conectan tu ERP en tiempo real con e-commerce, CRM, WMS, aplicaciones móviles y portales de clientes.</p>
+
+      <div class="hero-meta" data-hero>
+        <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Jueves 5 de noviembre</b><span>2026</span></div></div>
+        <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>11:00 CL · AR</b><span>09:00 PE</span></div></div>
+        <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><b>Google Meet</b><span>Online · En vivo</span></div></div>
+      </div>
+
+      <div class="hero-cta" data-hero>
+        <a href="#registro" class="btn btn-primary btn-hero" data-scroll>Reservar mi cupo
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#beneficios" class="btn btn-ghost" data-scroll>¿Qué vas a aprender?</a>
+      </div>
+
+      <div data-hero>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="cd glass grad-border"><span class="n" data-u="d">00</span><span class="u">Días</span></div>
+          <div class="cd glass grad-border"><span class="n" data-u="h">00</span><span class="u">Horas</span></div>
+          <div class="cd glass grad-border"><span class="n" data-u="m">00</span><span class="u">Min</span></div>
+          <div class="cd glass grad-border"><span class="n" data-u="s">00</span><span class="u">Seg</span></div>
+        </div>
+        <p class="cd-label" id="localTime">Comenzamos el jueves 5 de noviembre.</p>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" aria-label="Expositores: Antonio Sánchez y Carlos Gonsales">
+      <div class="pulse"></div><div class="pulse p2"></div><div class="pulse p3"></div>
+      <div class="ring" data-depth="0.15"></div>
+      <div class="stage-card"></div>
+      <div class="stage-people">
+        <img class="p-antonio" src="assets/antonio.webp" alt="Antonio Sánchez" data-depth="0.4">
+        <img class="p-carlos" src="assets/carlos.webp" alt="Carlos Gonsales" data-depth="0.4">
+      </div>
+      <div class="stage-fade"></div>
+      <div class="stage-names">
+        <div><b>Antonio Sánchez</b><span>Jefe de Desarrollo</span></div>
+        <div><b>Carlos Gonsales</b><span>Gerente Comercial SAP B1</span></div>
+      </div>
+      <div class="float-chip glass fc1"><i></i>Evento en SAP Business One</div>
+      <div class="float-chip glass fc2"><i></i>Notificación → sistemas conectados</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-label="Integraciones">
+  <div class="marquee-track">
+    <span>E-commerce</span><span>CRM</span><span>WMS</span><span>Aplicaciones móviles</span><span>Portales de clientes</span><span>APIs y servicios de integración</span>
+    <span>E-commerce</span><span>CRM</span><span>WMS</span><span>Aplicaciones móviles</span><span>Portales de clientes</span><span>APIs y servicios de integración</span>
+  </div>
+</div>
+
+<!-- ================= AUDIENCIA ================= -->
+<section id="audiencia">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker" data-reveal>¿Para quién es este webinar?</span>
+      <h2 class="h2" data-reveal>Distintas miradas, <em>un mismo ERP</em><br>conectado en tiempo real.</h2>
+    </div>
+    <div class="aud-grid">
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 9l-2 2 2 2M15 9l2 2-2 2"/></svg></div>
+        <span class="tag" style="display:block;margin-top:22px">TI / Sistemas</span>
+        <h3>Directores, gerentes y jefes de TI</h3>
+        <p>Integraciones más eficientes, sin consultas innecesarias.</p>
+        <ul><li>Menor dependencia de consultas periódicas a SAP Business One</li><li>Integraciones desacopladas, escalables y eficientes</li><li>Un complemento para sus APIs y servicios de integración</li></ul>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <span class="tag" style="display:block;margin-top:22px">Finanzas / Contabilidad</span>
+        <h3>Gerentes de Finanzas y Contabilidad</h3>
+        <p>Procesos automatizados e información más actualizada.</p>
+        <ul><li>Menos tareas manuales e intervención de los usuarios</li><li>Datos sincronizados entre distintas plataformas</li><li>Menores costos de integración</li></ul>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div>
+        <span class="tag" style="display:block;margin-top:22px">Operaciones / C-Level</span>
+        <h3>Gerentes de Operaciones y C-Level</h3>
+        <p>Agilidad operativa y nuevas posibilidades de negocio.</p>
+        <ul><li>Sistemas que reaccionan oportunamente a los cambios</li><li>Pedidos, despachos y notificaciones más oportunos para el cliente</li><li>Nuevos servicios de negocio sobre ecosistemas digitales</li></ul>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></div>
+        <span class="tag" style="display:block;margin-top:22px">Consultoría / Otras áreas</span>
+        <h3>Consultores y quienes quieren conocer el tema</h3>
+        <p>Una introducción clara a los Webhooks y la arquitectura de eventos.</p>
+        <ul><li>Qué son los Webhooks y cómo funcionan en SAP Business One</li><li>Cómo conectar SAP Business One con ecosistemas digitales</li><li>Nuevas posibilidades de automatización</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CARACTERÍSTICAS ================= -->
+<section id="beneficios" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker" data-reveal>Características principales</span>
+      <h2 class="h2" data-reveal>Del polling al <em>evento.</em></h2>
+      <p class="lead" data-reveal>Los Webhooks de SAP Business One v26.1 notifican a tus sistemas cuando ocurre un evento de negocio, sin esperar una sincronización programada.</p>
+    </div>
+
+    <div class="compare">
+      <div class="flow bad glass grad-border" data-reveal>
+        <h4>Sin webhooks <span class="badge">Consulta periódica</span></h4>
+        <div class="lane"><span class="node">Sistema externo</span><span class="wire"><i></i></span><span class="node erp">SAP B1</span></div>
+        <p>Los sistemas consultan constantemente SAP Business One para detectar cambios y dependen de una sincronización programada.</p>
+      </div>
+      <div class="flow good glass grad-border" data-reveal>
+        <h4>Con webhooks <span class="badge">Al ocurrir el evento</span></h4>
+        <div class="lane"><span class="node erp">SAP B1</span><span class="wire"><i></i></span><span class="node">Tus sistemas</span></div>
+        <p>SAP Business One notifica a los sistemas externos cuando ocurre el evento, y estos reaccionan de inmediato.</p>
+      </div>
+    </div>
+
+    <div class="features">
+      <article class="card glass grad-border spot wide" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+        <h3>Notificaciones automáticas por eventos</h3>
+        <p>Permiten notificar a sistemas externos cuando ocurren determinados eventos en SAP Business One, según los eventos y objetos soportados.</p>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Integración en tiempo real</h3>
+        <p>Otros sistemas reaccionan a los cambios en SAP Business One sin esperar una sincronización programada.</p>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
+        <h3>Comunicación entre aplicaciones</h3>
+        <p>Conecta SAP Business One con e-commerce, CRM, WMS, aplicaciones móviles, portales de clientes y otras soluciones.</p>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7.5"/></svg></div>
+        <h3>Automatización de procesos</h3>
+        <p>Desencadena flujos de trabajo y acciones en otros sistemas a partir de eventos de negocio.</p>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><path d="m4 4 16 16"/></svg></div>
+        <h3>Menor dependencia de consultas periódicas</h3>
+        <p>Reduce la necesidad de consultar constantemente SAP Business One para detectar cambios.</p>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="6" r="1.8"/><circle cx="19.5" cy="6" r="1.8"/><circle cx="4.5" cy="18" r="1.8"/><circle cx="19.5" cy="18" r="1.8"/><path d="m6 7 4.2 3.6M18 7l-4.2 3.6M6 17l4.2-3.6M18 17l-4.2-3.6"/></svg></div>
+        <h3>Arquitectura orientada a eventos</h3>
+        <p>Favorece integraciones más desacopladas, escalables y eficientes.</p>
+      </article>
+      <article class="card glass grad-border spot" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0V7zM12 17v5"/></svg></div>
+        <h3>Complemento para estrategias de integración</h3>
+        <p>Se usan junto con APIs y servicios de integración para construir flujos automatizados entre aplicaciones.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFICIOS ================= -->
+<section id="beneficios-empresa" style="padding-top:0">
+  <div class="wrap benef">
+    <div class="benef-head">
+      <span class="kicker" data-reveal>Beneficios para las empresas</span>
+      <h2 class="h2" data-reveal style="margin-top:16px">Lo que gana tu <em>operación.</em></h2>
+      <p class="lead" data-reveal style="margin-top:16px">Una operación conectada, que reacciona a tiempo y abre nuevas posibilidades de automatización.</p>
+      <a href="#registro" class="btn btn-primary" data-scroll data-reveal style="margin-top:28px">Reservar mi cupo
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <ul class="blist">
+          <li data-reveal><span class="n">01</span><div><h3>Mayor agilidad operativa</h3><p>Los sistemas conectados reaccionan oportunamente ante los cambios en SAP Business One.</p></div></li>
+          <li data-reveal><span class="n">02</span><div><h3>Menos tareas manuales</h3><p>Automatiza la propagación de eventos y reduce la intervención de los usuarios.</p></div></li>
+          <li data-reveal><span class="n">03</span><div><h3>Información más actualizada</h3><p>Mantiene sincronizados los procesos y datos entre distintas plataformas.</p></div></li>
+          <li data-reveal><span class="n">04</span><div><h3>Menores costos de integración</h3><p>Reduce la complejidad de los mecanismos de detección de cambios y sincronización.</p></div></li>
+          <li data-reveal><span class="n">05</span><div><h3>Mejor experiencia del cliente</h3><p>Habilita procesos más oportunos, como actualizaciones de pedidos, estados de despacho y notificaciones comerciales.</p></div></li>
+          <li data-reveal><span class="n">06</span><div><h3>Mayor eficiencia tecnológica</h3><p>Evita consultas innecesarias y permite diseñar integraciones más eficientes.</p></div></li>
+          <li data-reveal><span class="n">07</span><div><h3>Nuevas posibilidades de automatización</h3><p>Abre oportunidades para conectar SAP Business One con ecosistemas digitales y desarrollar nuevos servicios de negocio.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= SPEAKERS ================= -->
+<section id="expositores" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker" data-reveal>Expositores</span>
+      <h2 class="h2" data-reveal>Te lo explican quienes <em>lo implementan.</em></h2>
+    </div>
+    <div class="spk-grid">
+      <article class="spk glass grad-border" data-reveal>
+        <div class="spk-photo spk-a"><div class="rings"></div><img src="assets/antonio.webp" alt="Antonio Sánchez" loading="lazy"></div>
+        <div class="spk-body">
+          <span class="topic">Arquitectura &amp; Webhooks</span>
+          <h3>Antonio Sánchez</h3>
+          <div class="role">Jefe de Desarrollo en Dot Solutions</div>
+          <p>Ingeniero en informática con más de 10 años de experiencia. Lidera el equipo de desarrollo y soporte TI de DOT: add-ons con SAP Business One SDK, APIs e integraciones con e-commerce, CRM y WMS que extienden el ERP.</p>
+        </div>
+      </article>
+      <article class="spk glass grad-border" data-reveal>
+        <div class="spk-photo spk-c"><div class="rings"></div><img src="assets/carlos.webp" alt="Carlos Gonsales" loading="lazy"></div>
+        <div class="spk-body">
+          <span class="topic">Valor de negocio</span>
+          <h3>Carlos Gonsales</h3>
+          <div class="role">Gerente Comercial SAP Business One en Dot Solutions</div>
+          <p>Consultor certificado en SAP Business One, trabaja con la plataforma desde 2006. Diseña propuestas de valor y acompaña su implementación de cerca. Fue tester de SAP Business One 9.1 en el Acceptance Test de SAP en Shanghái.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTRO ================= -->
+<section id="registro" style="padding-top:0">
+  <div class="wrap reg-grid">
+    <div>
+      <span class="kicker" data-reveal>Inscripción</span>
+      <h2 class="h2" data-reveal style="margin-top:16px">Reserva tu <em>cupo.</em></h2>
+      <p class="lead" data-reveal style="margin-top:16px">Recibirás el enlace de Google Meet en tu correo corporativo.</p>
+      <ul class="perks" data-reveal>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><div><b>Webinar en vivo</b><br><span>Webhooks y arquitectura orientada a eventos en SAP Business One v26.1.</span></div></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><div><b>Dudas y consultas</b><br><span>Un espacio para resolver tus preguntas con los expositores.</span></div></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><div><b>Diagnóstico estratégico</b><br><span>Opcional: una conversación con un Consultor Senior para entender tu operación.</span></div></li>
+      </ul>
+      <div class="event-box glass grad-border" data-reveal>
+        <div><span>Fecha</span><b>Jueves 5 de noviembre, 2026</b></div>
+        <div><span>Hora</span><b>11:00 CL · 11:00 AR · 09:00 PE</b></div>
+        <div><span>Plataforma</span><b>Google Meet</b></div>
+      </div>
+    </div>
+
+    <div class="form-card glass grad-border" data-reveal>
+      <form id="regForm" novalidate>
+        <h3>Datos de inscripción</h3>
+        <p class="hint">Usa tu correo corporativo. Todos los campos son obligatorios.</p>
+        <div class="fgrid">
+          <div class="field"><label for="nombre">Nombre <i>*</i></label><input class="ctrl" id="nombre" name="nombre" autocomplete="given-name" placeholder="Ej: María" required><span class="err">Ingresa tu nombre.</span></div>
+          <div class="field"><label for="apellido">Apellido <i>*</i></label><input class="ctrl" id="apellido" name="apellido" autocomplete="family-name" placeholder="Ej: González" required><span class="err">Ingresa tu apellido.</span></div>
+          <div class="field full"><label for="email">Correo corporativo <i>*</i></label><input class="ctrl" id="email" name="email" type="email" autocomplete="email" placeholder="nombre@tuempresa.com" required><span class="err" data-err="email">Ingresa un correo válido.</span></div>
+          <div class="field"><label for="pais">País <i>*</i></label>
+            <select class="ctrl" id="pais" name="pais" required>
+              <option value="" disabled selected>Selecciona</option>
+              <option value="CL" data-pre="+56">Chile</option>
+              <option value="PE" data-pre="+51">Perú</option>
+              <option value="AR" data-pre="+54">Argentina</option>
+              <option value="OTRO" data-pre="+">Otro</option>
+            </select><span class="err">Selecciona tu país.</span></div>
+          <div class="field"><label for="telefono">Teléfono / WhatsApp <i>*</i></label>
+            <div class="phone"><input class="ctrl pre" id="prefijo" name="prefijo" value="+56" aria-label="Código de país" inputmode="tel"><input class="ctrl" id="telefono" name="telefono" type="tel" autocomplete="tel-national" placeholder="9 1234 5678" required></div>
+            <span class="err">Ingresa un teléfono válido.</span></div>
+          <div class="field full"><label for="empresa">Nombre de la empresa <i>*</i></label><input class="ctrl" id="empresa" name="empresa" autocomplete="organization" placeholder="Ej: Comercial Andes S.A." required><span class="err">Ingresa el nombre de tu empresa.</span></div>
+          <div class="field full"><label for="cargo">Cargo <i>*</i></label>
+            <select class="ctrl" id="cargo" name="cargo" required>
+              <option value="" disabled selected>Selecciona tu cargo</option>
+              <optgroup label="TI / Sistemas">
+                <option data-seg="TI" data-lvl="dir">Director/a de TI / CIO</option>
+                <option data-seg="TI" data-lvl="mgr">Gerente de TI / Sistemas</option>
+                <option data-seg="TI" data-lvl="mgr">Jefe/a de TI / Sistemas</option>
+                <option data-seg="TI" data-lvl="ic">Analista / Desarrollador/a</option>
+              </optgroup>
+              <optgroup label="Finanzas / Contabilidad">
+                <option data-seg="Finanzas" data-lvl="dir">Gerente de Finanzas / CFO</option>
+                <option data-seg="Finanzas" data-lvl="mgr">Contador/a General / Jefe/a de Contabilidad</option>
+                <option data-seg="Finanzas" data-lvl="ic">Analista contable / financiero</option>
+              </optgroup>
+              <optgroup label="Operaciones">
+                <option data-seg="Operaciones" data-lvl="dir">Gerente de Operaciones / COO</option>
+                <option data-seg="Operaciones" data-lvl="mgr">Jefe/a de Operaciones / Logística</option>
+              </optgroup>
+              <optgroup label="C-Level">
+                <option data-seg="C-Level" data-lvl="dir">Gerente General / CEO</option>
+                <option data-seg="C-Level" data-lvl="dir">Dueño/a / Socio/a</option>
+              </optgroup>
+              <optgroup label="Consultoría / Otras áreas">
+                <option data-seg="Consultoría" data-lvl="ic">Consultor/a o partner</option>
+                <option data-seg="Otro" data-lvl="ic">Otra área o cargo</option>
+              </optgroup>
+            </select><span class="err">Selecciona tu cargo.</span></div>
+          <div class="field full"><label for="version">Versión actual de SAP Business One <i>*</i></label>
+            <select class="ctrl" id="version" name="version" required>
+              <option value="" disabled selected>Selecciona</option>
+              <option value="b1-10" data-fit="sap">SAP Business One 10.0</option>
+              <option value="b1-9" data-fit="sap">SAP Business One 9.x o anterior</option>
+              <option value="b1-nose" data-fit="sap">Uso SAP Business One, pero no sé la versión</option>
+              <option value="evaluando" data-fit="prospect">Aún no uso SAP B1: lo estoy evaluando</option>
+              <option value="otro-erp" data-fit="other">Uso otro ERP</option>
+            </select><span class="err">Selecciona una opción.</span></div>
+          <div class="field full">
+            <label class="check"><input type="checkbox" id="diagnostico" name="diagnostico"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quiero que un Consultor Senior me contacte para agendar un <b style="color:var(--light);font-weight:500">diagnóstico estratégico</b>.</span></label>
+          </div>
+          <div class="field full" id="consentField">
+            <label class="check"><input type="checkbox" id="consent" name="consent" required><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Acepto la <a href="#" data-privacy>política de privacidad</a> y recibir comunicaciones de DOT Solutions sobre este webinar. <i style="color:var(--mic);font-style:normal">*</i></span></label>
+            <span class="err">Debes aceptar para continuar.</span>
+          </div>
+          <!-- campos ocultos para segmentación / mailing -->
+          <input type="hidden" name="segmento" id="segmento">
+          <input type="hidden" name="prioridad" id="prioridad">
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+          <div class="sr" aria-hidden="true"><label>No completar <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        </div>
+        <button class="btn btn-primary submit" type="submit" id="submitBtn">Confirmar inscripción
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="form-note">Tus datos se usan solo para gestionar tu inscripción y comunicaciones de este evento.</p>
+      </form>
+
+      <div class="success" id="success" role="status">
+        <div class="big"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
+        <h3>¡Listo, <span id="okName">tu cupo</span> está reservado!</h3>
+        <p>Te enviaremos el enlace de Google Meet a <b id="okEmail" style="color:var(--light);font-weight:500"></b>. Agrégalo a tu calendario para no perdértelo.</p>
+        <div class="cal">
+          <a class="btn btn-primary btn-sm" id="gcal" target="_blank" rel="noopener">Google Calendar</a>
+          <button class="btn btn-ghost btn-sm" id="ics" type="button">Descargar .ics (Outlook / Apple)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="lockup" style="margin-bottom:18px"><img class="dot" src="assets/logo-blanco.svg" alt="DOT Solutions"><span class="div"></span><img class="sap" src="assets/sapb1-white.png" alt="SAP Business One"></div>
+        <p style="max-width:340px">Partner Gold de SAP Business One. Impulsamos eficiencia. Transformamos tu negocio.</p>
+        <img src="assets/sap-gold-partner.png" alt="SAP Gold Partner" style="height:40px;margin-top:14px">
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <a href="mailto:contacto@dotsolutions.io">contacto@dotsolutions.io</a>
+        <a href="https://dotsolutions.io" target="_blank" rel="noopener">dotsolutions.io</a>
+        <p>Av. del Valle Norte 928, of. 503<br>Huechuraba, Santiago, Chile</p>
+      </div>
+      <div>
+        <h5>Webinar</h5>
+        <a href="#audiencia" data-scroll>¿Para quién es?</a>
+        <a href="#beneficios" data-scroll>Características</a>
+        <a href="#beneficios-empresa" data-scroll>Beneficios</a>
+        <a href="#expositores" data-scroll>Expositores</a>
+        <a href="#registro" data-scroll>Inscripción</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 DOT Solutions. Todos los derechos reservados. SAP, SAP Business One y sus logotipos son marcas registradas de SAP SE.</span>
+      <button type="button" data-privacy>Política de privacidad</button>
+    </div>
+  </div>
+</footer>
+
+<div class="m-cta"><a href="#registro" class="btn btn-primary" data-scroll>Reservar mi cupo</a></div>
+
+<div class="modal" id="privacy" role="dialog" aria-modal="true" aria-labelledby="privTitle">
+  <div class="modal-in glass grad-border">
+    <h3 id="privTitle">Política de privacidad</h3>
+    <!-- Reemplazar por el texto legal oficial de DOT Solutions -->
+    <p>Los datos que ingreses en este formulario (nombre, correo, teléfono, empresa, cargo, país y versión de SAP Business One) serán tratados por DOT Solutions con el fin de gestionar tu inscripción al webinar, enviarte el enlace de acceso, recordatorios y material relacionado.</p>
+    <p>Si marcas la opción de diagnóstico, un consultor de DOT Solutions podrá contactarte. No compartimos tus datos con terceros para fines comerciales.</p>
+    <p>Puedes solicitar el acceso, rectificación o eliminación de tus datos escribiendo a contacto@dotsolutions.io.</p>
+    <button class="btn btn-primary btn-sm" type="button" data-close>Entendido</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* =========================================================
+   CONFIGURACIÓN DEL FORMULARIO
+   endpoint: URL que recibe el POST (JSON) con cada inscripción.
+   Opciones: Google Apps Script (Web App) → Google Sheets, webhook de
+   HubSpot / Make / Zapier / n8n, o el backend propio de DOT.
+   Si queda vacío, el formulario funciona en modo demo (guarda en
+   localStorage del navegador y muestra el payload en la consola).
+   ========================================================= */
+const CONFIG = {
+  endpoint: '',
+  event: {
+    title: 'Webinar SAP Business One v26.1: Webhooks & Eventos en Tiempo Real',
+    startUTC: '20261105T140000Z',   // 11:00 CL (UTC-3)
+    endUTC:   '20261105T150000Z',
+    start: new Date('2026-11-05T11:00:00-03:00'),
+    details: 'Webinar en vivo de DOT Solutions. El enlace de Google Meet llegará a tu correo.',
+    location: 'Google Meet (online)'
+  },
+  freeDomains: ['gmail.com','hotmail.com','outlook.com','live.com','yahoo.com','yahoo.es','icloud.com','me.com','aol.com','protonmail.com','proton.me','msn.com','hotmail.es','outlook.es','live.cl','gmx.com','mail.com','yandex.com']
+};
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasGsap = typeof gsap !== 'undefined';
+
+/* ---------- Lenis + GSAP ---------- */
+let lenis = null;
+if (!reduce && typeof Lenis !== 'undefined') {
+  lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+  if (hasGsap) {
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+  }
+}
+const scrollToEl = (el) => {
+  if (!el) return;
+  if (lenis) lenis.scrollTo(el, { offset: -90, duration: 1.4 });
+  else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+};
+document.querySelectorAll('[data-scroll]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'); if (!id || !id.startsWith('#')) return;
+  e.preventDefault(); scrollToEl(document.querySelector(id));
+}));
+
+/* ---------- nav ---------- */
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+/* ---------- animaciones ---------- */
+if (hasGsap && !reduce) {
+  gsap.registerPlugin(ScrollTrigger);
+  // el anillo se centra con xPercent/yPercent para que rotación, entrada y parallax no lo desplacen
+  gsap.set('.stage .ring', { clearProps: 'transform' });
+  gsap.set('.stage .ring', { xPercent: -50, yPercent: -50, x: 0, y: 0, rotate: 0, transformOrigin: '50% 50%' });
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('.nav-in', { y: -30, opacity: 0, duration: .8 })
+    .from('.hero h1 .l > span', { yPercent: 110, duration: 1, stagger: .1 }, '-=.4')
+    .from('[data-hero]', { y: 24, opacity: 0, duration: .8, stagger: .08 }, '-=.6')
+    .from('.stage .ring', { scale: .6, opacity: 0, duration: 1.2, ease: 'expo.out' }, .3)
+    .from('.stage-card', { y: 60, opacity: 0, duration: 1 }, .5)
+    .from('.stage-people img', { y: 80, opacity: 0, duration: 1.1, stagger: .12 }, .6)
+    .from('.stage-names, .float-chip', { y: 16, opacity: 0, duration: .7, stagger: .1 }, 1.1);
+  gsap.to('.stage .ring', { rotate: 360, duration: 60, repeat: -1, ease: 'none' });
+  gsap.to('.fc1', { y: -10, duration: 2.6, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+  gsap.to('.fc2', { y: 10, duration: 3.1, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+
+  gsap.utils.toArray('[data-reveal]').forEach(el => {
+    gsap.fromTo(el, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+  // parallax ligero en el hero
+  const stage = document.getElementById('stage');
+  if (window.matchMedia('(pointer:fine)').matches) {
+    stage.addEventListener('mousemove', e => {
+      const r = stage.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      stage.querySelectorAll('[data-depth]').forEach(el => { const d = +el.dataset.depth; gsap.to(el, { x: x * 30 * d, y: y * 20 * d, duration: .8, ease: 'power2.out' }); });
+    });
+    stage.addEventListener('mouseleave', () => gsap.to(stage.querySelectorAll('[data-depth]'), { x: 0, y: 0, duration: 1 }));
+  }
+} else {
+  document.querySelectorAll('[data-reveal]').forEach(el => el.style.opacity = 1);
+}
+
+/* spotlight en tarjetas */
+document.querySelectorAll('.spot').forEach(c => c.addEventListener('pointermove', e => {
+  const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+}));
+
+/* ---------- countdown ---------- */
+(() => {
+  const els = {}; document.querySelectorAll('#countdown [data-u]').forEach(n => els[n.dataset.u] = n);
+  const pad = n => String(n).padStart(2, '0');
+  const prev = {};
+  const tick = () => {
+    let ms = CONFIG.event.start - Date.now();
+    if (ms <= 0) { document.getElementById('localTime').textContent = '¡Estamos en vivo! Revisa tu correo para el enlace de Google Meet.'; ms = 0; }
+    const v = { d: Math.floor(ms / 864e5), h: Math.floor(ms / 36e5) % 24, m: Math.floor(ms / 6e4) % 60, s: Math.floor(ms / 1e3) % 60 };
+    for (const k in v) {
+      const t = pad(v[k]);
+      if (prev[k] !== t) {
+        els[k].textContent = t;
+        if (hasGsap && !reduce && prev[k] !== undefined) gsap.fromTo(els[k], { yPercent: -35, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .45, ease: 'power2.out' });
+        prev[k] = t;
+      }
+    }
+  };
+  tick(); setInterval(tick, 1000);
+  try {
+    const local = CONFIG.event.start.toLocaleString('es', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+    document.getElementById('localTime').textContent = 'En tu zona horaria: ' + local + '.';
+  } catch (e) {}
+})();
+
+/* ---------- formulario ---------- */
+(() => {
+  const form = document.getElementById('regForm');
+  const $ = id => document.getElementById(id);
+  // UTM
+  const qs = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k => { const v = qs.get(k); if (v) form.elements[k].value = v; });
+  // prefijo según país
+  $('pais').addEventListener('change', e => { const o = e.target.selectedOptions[0]; if (o && o.dataset.pre) $('prefijo').value = o.dataset.pre; });
+
+  const setInvalid = (input, bad, msg) => {
+    const f = input.closest('.field'); f.classList.toggle('invalid', bad);
+    if (msg) { const er = f.querySelector('.err'); if (er) er.textContent = msg; }
+    return !bad;
+  };
+  const validators = {
+    nombre: el => setInvalid(el, el.value.trim().length < 2),
+    apellido: el => setInvalid(el, el.value.trim().length < 2),
+    email: el => {
+      const v = el.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return setInvalid(el, true, 'Ingresa un correo válido.');
+      const dom = v.split('@')[1];
+      if (CONFIG.freeDomains.includes(dom)) return setInvalid(el, true, 'Usa tu correo corporativo (no Gmail, Hotmail, Outlook, etc.).');
+      return setInvalid(el, false);
+    },
+    pais: el => setInvalid(el, !el.value),
+    telefono: el => setInvalid(el, el.value.replace(/\D/g, '').length < 7),
+    empresa: el => setInvalid(el, el.value.trim().length < 2),
+    cargo: el => setInvalid(el, !el.value),
+    version: el => setInvalid(el, !el.value),
+    consent: el => { const f = $('consentField'); f.classList.toggle('invalid', !el.checked); return el.checked; }
+  };
+  Object.keys(validators).forEach(k => {
+    const el = $(k);
+    el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'blur', () => validators[k](el));
+    el.addEventListener('input', () => { if (el.closest('.field').classList.contains('invalid')) validators[k](el); });
+  });
+
+  // Segmentación y prioridad del lead (para el flujo de email marketing)
+  const qualify = () => {
+    const c = $('cargo').selectedOptions[0] || {}; const v = $('version').selectedOptions[0] || {};
+    const seg = (c.dataset && c.dataset.seg) || 'Otro', lvl = (c.dataset && c.dataset.lvl) || 'ic';
+    const fit = (v.dataset && v.dataset.fit) || 'other'; const pais = $('pais').value;
+    const target = ['CL','PE','AR'].includes(pais);
+    let p = 'C';
+    if (fit === 'sap' && target && seg !== 'Otro' && lvl !== 'ic') p = 'A';
+    else if ((fit === 'sap' && target) || (fit === 'prospect' && target && lvl !== 'ic')) p = 'B';
+    if (p === 'B' && $('diagnostico').checked) p = 'A';
+    return { segmento: seg, nivel: lvl, encaje: fit, prioridad: p };
+  };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form.elements.website.value) return; // honeypot
+    let ok = true, first = null;
+    for (const k in validators) { const r = validators[k]($(k)); if (!r && !first) first = $(k); ok = ok && r; }
+    if (!ok) { scrollToEl(first.closest('.field')); first.focus({ preventScroll: true }); return; }
+    const q = qualify();
+    $('segmento').value = q.segmento; $('prioridad').value = q.prioridad;
+    const data = Object.fromEntries(new FormData(form).entries());
+    delete data.website;
+    const payload = { ...data, ...q, cargo: $('cargo').value, version_label: $('version').selectedOptions[0].textContent,
+      telefono_completo: (data.prefijo + ' ' + data.telefono).trim(), diagnostico: $('diagnostico').checked, consent: true,
+      evento: 'webinar-sapb1-v26-1-webhooks', submitted_at: new Date().toISOString(),
+      tz: Intl.DateTimeFormat().resolvedOptions().timeZone, page: location.href.split('#')[0] };
+    const btn = $('submitBtn'); btn.disabled = true; btn.firstChild.textContent = 'Enviando… ';
+    try {
+      if (CONFIG.endpoint) {
+        await fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+      } else {
+        const k = 'dot_webinar_leads'; let arr = [];
+        try { arr = JSON.parse(localStorage.getItem(k) || '[]'); } catch (_) {}
+        arr.push(payload); try { localStorage.setItem(k, JSON.stringify(arr)); } catch (_) {}
+        console.info('[Modo demo] Inscripción capturada (configura CONFIG.endpoint para enviarla):', payload);
+      }
+      showSuccess(payload);
+    } catch (err) {
+      btn.disabled = false; btn.firstChild.textContent = 'Confirmar inscripción ';
+      alert('No pudimos enviar tu inscripción. Inténtalo nuevamente o escríbenos a contacto@dotsolutions.io');
+    }
+  });
+
+  const showSuccess = (p) => {
+    $('okName').textContent = p.nombre ? p.nombre + ', tu cupo' : 'tu cupo';
+    $('okEmail').textContent = p.email;
+    const ev = CONFIG.event;
+    $('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(ev.title) +
+      '&dates=' + ev.startUTC + '/' + ev.endUTC + '&details=' + encodeURIComponent(ev.details) + '&location=' + encodeURIComponent(ev.location);
+    if (hasGsap && !reduce) {
+      gsap.to(form, { opacity: 0, y: -10, duration: .35, onComplete: () => { form.style.display = 'none'; $('success').classList.add('show');
+        gsap.from('#success > *', { y: 20, opacity: 0, stagger: .08, duration: .6, ease: 'power3.out' }); } });
+    } else { form.style.display = 'none'; $('success').classList.add('show'); }
+  };
+  $('ics').addEventListener('click', () => {
+    const ev = CONFIG.event;
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//DOT Solutions//Webinar//ES','BEGIN:VEVENT','UID:webinar-sapb1-v261@dotsolutions.io',
+      'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z','DTSTART:' + ev.startUTC,'DTEND:' + ev.endUTC,
+      'SUMMARY:' + ev.title,'DESCRIPTION:' + ev.details,'LOCATION:' + ev.location,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+    a.download = 'webinar-dot-sapb1-v26-1.ics'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+})();
+
+/* ---------- modal privacidad ---------- */
+(() => {
+  const m = document.getElementById('privacy');
+  const open = e => { e.preventDefault(); m.classList.add('open'); if (lenis) lenis.stop(); m.querySelector('[data-close]').focus(); };
+  const close = () => { m.classList.remove('open'); if (lenis) lenis.start(); };
+  document.querySelectorAll('[data-privacy]').forEach(b => b.addEventListener('click', open));
+  m.querySelector('[data-close]').addEventListener('click', close);
+  m.addEventListener('click', e => { if (e.target === m) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
+})();
+</script>
+</body>
+</html>
