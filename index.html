@@ -323,6 +323,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .hero .check{font-size:11.5px}
   .hero .submit{padding:13px}
 }
+
+/* cierre con speakers */
+#cierre{position:relative;overflow:hidden;padding:clamp(80px,10vw,130px) 0;border-top:1px solid var(--line)}
+.final-roots{position:absolute;inset:0;background:url(assets/raices.jpg) center 70%/cover no-repeat;opacity:.2;mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 70%,transparent 100%);pointer-events:none}
+.final-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,3.5vw,56px);align-items:center}
+.final-copy{min-width:0}
+.final-h{font-size:clamp(44px,6vw,86px);line-height:.95;font-weight:600;letter-spacing:-.03em;margin:18px 0 18px;text-wrap:balance}
+.final-h .g{color:var(--mic)}
+.final-copy .lead{font-size:clamp(14px,1.15vw,16px)}
+#cierre .hero-meta{margin:20px 0 22px}
+@media (max-width:920px){.final-grid{grid-template-columns:minmax(0,1fr)}#cierre .stage{justify-self:center;max-width:460px}}
 /* sticky cta mobile */
 .m-cta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
 .m-cta .btn{width:100%;justify-content:center}
@@ -679,16 +690,40 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </section>
 
 <!-- ================= CIERRE ================= -->
-<section id="cierre" style="padding-top:0">
-  <div class="wrap">
-    <div class="final glass grad-border" data-reveal>
-      <div class="final-txt">
-        <span class="kicker">Jueves 5 de noviembre · 11:00 CL · AR · 09:00 PE · Google Meet</span>
-        <h2 class="h2">Reserva tu <em>cupo.</em></h2>
-        <p class="lead">Webinar en vivo con espacio de dudas y consultas. Si quieres, también puedes pedir un diagnóstico estratégico con un Consultor Senior.</p>
+<section id="cierre">
+  <div class="final-roots" aria-hidden="true"></div>
+  <div class="wrap final-grid">
+    <div class="final-copy">
+      <span class="pill" data-final><span class="live-dot"></span>Te esperamos en vivo</span>
+      <h2 class="final-h" data-final>Reserva<br>tu <span class="g">cupo.</span></h2>
+      <p class="lead" data-final>Webhooks y arquitectura orientada a eventos en SAP Business One v26.1, con espacio de dudas y consultas con los expositores. Si quieres, también puedes pedir un diagnóstico estratégico con un Consultor Senior.</p>
+      <div class="hero-meta" data-final>
+        <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Jueves 5 de noviembre</b><span>2026</span></div></div>
+        <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>11:00 CL · AR</b><span>09:00 PE</span></div></div>
+        <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><b>Google Meet</b><span>Online · En vivo</span></div></div>
       </div>
-      <a href="#registro" class="btn btn-primary" data-scroll>Ir al formulario
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="hero-cta" data-final>
+        <a href="#registro" class="btn btn-primary btn-hero" data-scroll>Ir al formulario
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+        <a href="#expositores" class="btn btn-ghost" data-scroll>Conoce a los expositores</a>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" aria-label="Expositores: Antonio Sánchez y Carlos Gonsales">
+      <div class="pulse"></div><div class="pulse p2"></div><div class="pulse p3"></div>
+      <div class="ring" data-depth="0.15"></div>
+      <div class="stage-card"></div>
+      <div class="stage-people">
+        <img class="p-antonio" src="assets/antonio.webp" alt="Antonio Sánchez" data-depth="0.4" loading="lazy">
+        <img class="p-carlos" src="assets/carlos.webp" alt="Carlos Gonsales" data-depth="0.4" loading="lazy">
+      </div>
+      <div class="stage-fade"></div>
+      <div class="stage-names">
+        <div><b>Antonio Sánchez</b><span>Jefe de Desarrollo</span></div>
+        <div><b>Carlos Gonsales</b><span>Gerente Comercial SAP B1</span></div>
+      </div>
+      <div class="float-chip glass fc1"><i></i>Evento en SAP Business One</div>
+      <div class="float-chip glass fc2"><i></i>Notificación → sistemas conectados</div>
     </div>
   </div>
 </section>
@@ -714,6 +749,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <a href="#audiencia" data-scroll>¿Para quién es?</a>
         <a href="#beneficios" data-scroll>Características</a>
         <a href="#beneficios-empresa" data-scroll>Beneficios</a>
+        <a href="#cierre" data-scroll>Reserva tu cupo</a>
         <a href="#expositores" data-scroll>Expositores</a>
         <a href="#registro" data-scroll>Inscripción</a>
       </div>
@@ -807,6 +843,28 @@ if (hasGsap && !reduce) {
     gsap.fromTo(el, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
+  // cierre: speakers en movimiento
+  const stage = document.getElementById('stage');
+  if (stage) {
+    gsap.set('.stage .ring', { clearProps: 'transform' });
+    gsap.set('.stage .ring', { xPercent: -50, yPercent: -50, x: 0, y: 0, rotate: 0, transformOrigin: '50% 50%' });
+    gsap.to('.stage .ring', { rotate: 360, duration: 60, repeat: -1, ease: 'none' });
+    gsap.to('.fc1', { y: -10, duration: 2.6, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+    gsap.to('.fc2', { y: 10, duration: 3.1, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+    const ft = gsap.timeline({ defaults: { ease: 'power3.out' }, scrollTrigger: { trigger: '#cierre', start: 'top 70%', once: true } });
+    ft.from('[data-final]', { y: 26, duration: .8, stagger: .08 })
+      .from('.stage .ring', { scale: .6, opacity: 0, duration: 1.2, ease: 'expo.out' }, 0)
+      .from('.stage-card', { y: 50, opacity: 0, duration: 1 }, .15)
+      .from('.stage-people img', { y: 70, opacity: 0, duration: 1.1, stagger: .12 }, .25)
+      .from('.stage-names, .float-chip', { y: 14, opacity: 0, duration: .7, stagger: .1 }, .7);
+    if (window.matchMedia('(pointer:fine)').matches) {
+      stage.addEventListener('mousemove', e => {
+        const r = stage.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        stage.querySelectorAll('[data-depth]').forEach(el => { const d = +el.dataset.depth; gsap.to(el, { x: x * 30 * d, y: y * 20 * d, duration: .8, ease: 'power2.out' }); });
+      });
+      stage.addEventListener('mouseleave', () => gsap.to(stage.querySelectorAll('[data-depth]'), { x: 0, y: 0, duration: 1 }));
+    }
+  }
 } else {
   document.querySelectorAll('[data-reveal]').forEach(el => el.style.opacity = 1);
 }
