@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DOT Solutions//Webinar SAP B1 v26.1//ES
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:webinar-sapb1-v261-20261105@dotsolutions.io
+DTSTAMP:20261021T120000Z
+DTSTART:20261105T140000Z
+DTEND:20261105T150000Z
+SUMMARY:Webinar SAP Business One v26.1: Webhooks & Eventos en Tiempo Real
+DESCRIPTION:Webinar en vivo de DOT Solutions. El enlace de Google Meet llega a tu correo.
+LOCATION:Google Meet (online)
+END:VEVENT
+END:VCALENDAR
