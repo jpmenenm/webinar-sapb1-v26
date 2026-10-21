@@ -337,6 +337,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 /* inicio: fondo oscuro con degradé (sin textura) */
 .hero{background:radial-gradient(900px 620px at 82% 30%,rgba(93,219,136,.09),transparent 65%),radial-gradient(700px 500px at 8% 85%,rgba(31,101,54,.14),transparent 70%),linear-gradient(180deg,#0B0F0D 0%,#0D1310 100%)}
+
+/* ritmo vertical del hero: mismo espacio sobre y bajo el párrafo */
+.hero-grid{--hgap:22px;row-gap:var(--hgap)!important}
+.hero .sub{margin-bottom:0!important}
+.hero-more .lead{margin:0}
+.hero-more .hero-meta{margin:var(--hgap) 0 18px!important}
+.hero h1 .l{white-space:nowrap}
+@media (min-width:921px) and (max-height:780px){.hero-grid{--hgap:16px}}
+
+/* h1 en 2 líneas: tamaño según el ancho disponible de la columna */
+.hero h1{font-size:clamp(30px,calc((100vw - 720px) / 14.5),60px)!important}
+@media (max-width:920px){.hero h1{font-size:clamp(26px,calc((100vw - 110px) / 14.5),56px)!important}}
+@media (max-width:640px){.hero h1{font-size:clamp(24px,calc((100vw - 48px) / 14.5),44px)!important}}
 /* sticky cta mobile */
 .m-cta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
 .m-cta .btn{width:100%;justify-content:center}
@@ -409,8 +422,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="hero-intro">
       <span class="pill" data-hero><span class="live-dot"></span>Webinar en vivo · 5 de noviembre</span>
       <h1>
-        <span class="l"><span>Webhooks</span></span>
-        <span class="l"><span class="g">&amp; eventos</span></span>
+        <span class="l"><span>Webhooks <span class="g">&amp; eventos</span></span></span>
         <span class="l"><span>en tiempo real.</span></span>
       </h1>
       <p class="sub" data-hero><span class="chip">SAP Business One v26.1</span><small>Arquitectura de eventos para una operación ágil.</small></p>
