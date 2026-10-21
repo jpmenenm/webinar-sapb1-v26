@@ -350,6 +350,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .hero h1{font-size:clamp(30px,calc((100vw - 720px) / 14.5),60px)!important}
 @media (max-width:920px){.hero h1{font-size:clamp(26px,calc((100vw - 110px) / 14.5),56px)!important}}
 @media (max-width:640px){.hero h1{font-size:clamp(24px,calc((100vw - 48px) / 14.5),44px)!important}}
+
+/* logos enlazados */
+.logo-link{display:inline-flex;align-items:center;border-radius:6px;transition:opacity .2s}
+.logo-link:hover{opacity:.75}
+.logo-link:focus-visible{outline:2px solid var(--mic);outline-offset:4px}
+@media (max-width:920px){.gold-link{display:none}}
 /* sticky cta mobile */
 .m-cta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
 .m-cta .btn{width:100%;justify-content:center}
@@ -402,13 +408,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a href="#top" class="lockup" aria-label="DOT Solutions × SAP Business One">
-      <img class="dot" src="assets/logo-blanco.svg" alt="DOT Solutions">
+    <div class="lockup">
+      <a href="https://dotsolutions.io" target="_blank" rel="noopener" class="logo-link" aria-label="Ir a dotsolutions.io"><img class="dot" src="assets/logo-blanco.svg" alt="DOT Solutions"></a>
       <span class="div" aria-hidden="true"></span>
-      <img class="sap" src="assets/sapb1-white.png" alt="SAP Business One">
-    </a>
+      <a href="https://dotsolutions.io/sap-business-one/" target="_blank" rel="noopener" class="logo-link" aria-label="Ir a SAP Business One en dotsolutions.io"><img class="sap" src="assets/sapb1-white.png" alt="SAP Business One"></a>
+    </div>
     <div class="nav-right">
-      <img class="gold" src="assets/sap-gold-partner.png" alt="SAP Gold Partner">
+      <a href="https://dotsolutions.io/sap-business-one/" target="_blank" rel="noopener" class="logo-link gold-link" aria-label="SAP Gold Partner · SAP Business One en dotsolutions.io"><img class="gold" src="assets/sap-gold-partner.png" alt="SAP Gold Partner"></a>
       <a href="#registro" class="btn btn-primary btn-sm" data-scroll>Reservar cupo
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
