@@ -67,13 +67,6 @@ section{position:relative;padding:clamp(80px,11vw,140px) 0}
 .sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(40px,5vw,64px)}
 
 
-/* ---------- CTA visible solo cuando el formulario del hero no está en pantalla ---------- */
-(() => {
-  const formBox = document.getElementById('registro'); const root = document.documentElement;
-  if (!formBox || !('IntersectionObserver' in window)) { root.classList.add('form-out'); return; }
-  new IntersectionObserver(([e]) => root.classList.toggle('form-out', !e.isIntersecting), { threshold: 0, rootMargin: '-80px 0px 0px 0px' }).observe(formBox);
-})();
-
 /* ---------- nav ---------- */
 .nav{position:fixed;top:14px;left:0;right:0;z-index:50;padding:0 var(--pad)}
 .nav-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 22px;border-radius:999px;transition:background .3s,border-color .3s}
@@ -857,6 +850,13 @@ document.querySelectorAll('[data-scroll]').forEach(a => a.addEventListener('clic
   const id = a.getAttribute('href'); if (!id || !id.startsWith('#')) return;
   e.preventDefault(); scrollToEl(document.querySelector(id));
 }));
+
+/* ---------- CTA visible solo cuando el formulario del hero no está en pantalla ---------- */
+(() => {
+  const formBox = document.getElementById('registro'); const root = document.documentElement;
+  if (!formBox || !('IntersectionObserver' in window)) { root.classList.add('form-out'); return; }
+  new IntersectionObserver(([e]) => root.classList.toggle('form-out', !e.isIntersecting), { threshold: 0, rootMargin: '-80px 0px 0px 0px' }).observe(formBox);
+})();
 
 /* ---------- nav ---------- */
 const nav = document.getElementById('nav');
