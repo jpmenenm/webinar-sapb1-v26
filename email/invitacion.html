@@ -13,7 +13,8 @@
 <style>
   /* =========================================================
      MAILING · Invitación al webinar
-     Envío por dotfax: listo para enviar, sin variables.
+     Envío por dotfax. Única variable: {{nombre}} (nombre de la
+     base de clientes, columna separada del apellido).
      La baja se solicita respondiendo a contacto@dotsolutions.io
      Imágenes alojadas en https://jpmenenm.github.io/webinar-sapb1-v26/email/img/
      ========================================================= */
@@ -46,7 +47,7 @@
 
 <!-- Preheader (texto de vista previa en la bandeja) -->
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#0B0F0D;">
-  Te invitamos: jueves 12 de noviembre, webinar en vivo SAP Business One 10 ¿Qué hay de nuevo? Web Client, IA, informes e integración.&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;
+  Te invitamos: jueves 12 de noviembre, webinar en vivo SAP Business One 10 ¿Qué hay de nuevo? Web Client, integraciones, IA y reportería.&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;
 </div>
 
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B0F0D" style="background:#0B0F0D;">
@@ -86,9 +87,9 @@
 
   <!-- ============ SALUDO ============ -->
   <tr><td class="px" bgcolor="#0F1512" style="background:#0F1512;padding:36px 40px 8px;">
-    <p class="f" style="margin:0 0 10px;font-family:'Poppins',Arial,sans-serif;font-size:12px;letter-spacing:2.4px;color:#5DDB88;font-weight:500;">HOLA,</p>
+    <p class="f" style="margin:0 0 10px;font-family:'Poppins',Arial,sans-serif;font-size:12px;letter-spacing:2.4px;color:#5DDB88;font-weight:500;">HOLA {{nombre}},</p>
     <h1 class="f h1" style="margin:0 0 16px;font-family:'Poppins',Arial,sans-serif;font-size:36px;line-height:42px;font-weight:600;color:#EBE9E3;letter-spacing:-0.5px;">SAP Business One 10<br><span style="color:#5DDB88;">¿Qué hay de nuevo?</span></h1>
-    <p class="f" style="margin:0;font-family:'Poppins',Arial,sans-serif;font-size:15px;line-height:25px;color:#B9BEB6;font-weight:300;">Te invitamos al webinar en vivo <strong style="color:#EBE9E3;font-weight:500;">SAP Business One 10 ¿Qué hay de nuevo?</strong> Recorremos el Feature Package 2608, el más amplio hasta la fecha: un Web Client que pasa a ser el centro de trabajo, IA generativa con Ask AI, informes más potentes y más control para integrar. Y cómo preparar tu empresa para lo que viene.</p>
+    <p class="f" style="margin:0;font-family:'Poppins',Arial,sans-serif;font-size:15px;line-height:25px;color:#B9BEB6;font-weight:300;">Te invitamos al webinar en vivo <strong style="color:#EBE9E3;font-weight:500;">SAP Business One 10 ¿Qué hay de nuevo?</strong> Recorremos lo nuevo de la última versión en cuatro focos: el Web Client como centro de trabajo, integraciones más simples con Service Layer y webhooks, la inteligencia artificial de SAP para ganar productividad y una reportería y analítica más potente. Y cómo preparar tu empresa para lo que viene.</p>
   </td></tr>
 
   <!-- ============ EVENTO + CTA ============ -->
@@ -128,7 +129,7 @@
 
   <!-- ============ LO NUEVO ============ -->
   <tr><td class="px" bgcolor="#0F1512" style="background:#0F1512;padding:30px 40px 6px;">
-    <p class="f" style="margin:0 0 6px;font-family:'Poppins',Arial,sans-serif;font-size:11px;letter-spacing:2.4px;color:#5DDB88;font-weight:500;">LO QUE VAS A VER · FP 2608</p>
+    <p class="f" style="margin:0 0 6px;font-family:'Poppins',Arial,sans-serif;font-size:11px;letter-spacing:2.4px;color:#5DDB88;font-weight:500;">LO QUE VAS A VER · 4 FOCOS</p>
     <h2 class="f" style="margin:0 0 18px;font-family:'Poppins',Arial,sans-serif;font-size:22px;line-height:28px;font-weight:600;color:#EBE9E3;">Más web, más inteligente <span style="color:#5DDB88;">y más conectado.</span></h2>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       <tr><td style="padding:0 0 12px;">
@@ -144,32 +145,32 @@
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#121614" style="border:1px solid #24402F;border-radius:16px;background:#121614;"><tr>
           <td width="54" valign="top" class="f" style="padding:18px 0 18px 18px;font-family:'Poppins',Arial,sans-serif;font-size:13px;font-weight:600;color:#5DDB88;letter-spacing:1px;">02</td>
           <td valign="top" class="f" style="padding:18px 18px 18px 0;font-family:'Poppins',Arial,sans-serif;">
-            <div style="font-size:11px;letter-spacing:1.6px;color:#5DDB88;font-weight:500;margin-bottom:4px;">INTELIGENCIA ARTIFICIAL</div>
-            <div style="font-size:15px;line-height:21px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">La IA generativa llega al Web Client</div>
-            <div style="font-size:13px;line-height:20px;color:#9AA197;">Ask AI responde preguntas en lenguaje natural sobre el documento o dato que estás viendo, y ayuda a construir consultas.</div>
+            <div style="font-size:11px;letter-spacing:1.6px;color:#5DDB88;font-weight:500;margin-bottom:4px;">INTEGRACIONES</div>
+            <div style="font-size:15px;line-height:21px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">Integrar es más simple</div>
+            <div style="font-size:13px;line-height:20px;color:#9AA197;">Service Layer y webhooks con más control sobre los eventos, para conectar e-commerce, CRM, WMS y BI con menos esfuerzo.</div>
           </td></tr></table>
       </td></tr>
       <tr><td style="padding:0 0 12px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#121614" style="border:1px solid #24402F;border-radius:16px;background:#121614;"><tr>
           <td width="54" valign="top" class="f" style="padding:18px 0 18px 18px;font-family:'Poppins',Arial,sans-serif;font-size:13px;font-weight:600;color:#5DDB88;letter-spacing:1px;">03</td>
           <td valign="top" class="f" style="padding:18px 18px 18px 0;font-family:'Poppins',Arial,sans-serif;">
-            <div style="font-size:11px;letter-spacing:1.6px;color:#5DDB88;font-weight:500;margin-bottom:4px;">INFORMES Y ANALÍTICA</div>
-            <div style="font-size:15px;line-height:21px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">Del KPI al documento origen</div>
-            <div style="font-size:13px;line-height:20px;color:#9AA197;">Informes con KPI agregados, detalle por transacción y acceso directo al documento que generó el dato, exportables a Excel.</div>
+            <div style="font-size:11px;letter-spacing:1.6px;color:#5DDB88;font-weight:500;margin-bottom:4px;">INTELIGENCIA ARTIFICIAL · EJE CENTRAL</div>
+            <div style="font-size:15px;line-height:21px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">La IA de SAP, al servicio de tu productividad</div>
+            <div style="font-size:13px;line-height:20px;color:#9AA197;">Ask AI responde preguntas en lenguaje natural sobre el documento o dato que estás viendo, y ayuda a construir consultas.</div>
           </td></tr></table>
       </td></tr>
       <tr><td style="padding:0 0 12px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#121614" style="border:1px solid #24402F;border-radius:16px;background:#121614;"><tr>
           <td width="54" valign="top" class="f" style="padding:18px 0 18px 18px;font-family:'Poppins',Arial,sans-serif;font-size:13px;font-weight:600;color:#5DDB88;letter-spacing:1px;">04</td>
           <td valign="top" class="f" style="padding:18px 18px 18px 0;font-family:'Poppins',Arial,sans-serif;">
-            <div style="font-size:11px;letter-spacing:1.6px;color:#5DDB88;font-weight:500;margin-bottom:4px;">DESARROLLO E INTEGRACIÓN</div>
-            <div style="font-size:15px;line-height:21px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">Más control para integrar</div>
-            <div style="font-size:13px;line-height:20px;color:#9AA197;">Service Layer con más control sobre webhooks y eventos, y nuevas bases para extensiones con IA y agentes.</div>
+            <div style="font-size:11px;letter-spacing:1.6px;color:#5DDB88;font-weight:500;margin-bottom:4px;">REPORTERÍA Y ANALÍTICA</div>
+            <div style="font-size:15px;line-height:21px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">Del KPI al documento origen</div>
+            <div style="font-size:13px;line-height:20px;color:#9AA197;">Informes con KPI agregados, detalle por transacción y acceso directo al documento que generó el dato, exportables a Excel.</div>
           </td></tr></table>
       </td></tr>
     </table>
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;"><tr>
-      <td class="f" style="font-family:'Poppins',Arial,sans-serif;font-size:12px;line-height:30px;color:#EBE9E3;"><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Banking y conciliaciones</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Proyectos y MRP</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Ask AI</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Webhooks</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Hoja de ruta en 5 pasos</span></td>
+      <td class="f" style="font-family:'Poppins',Arial,sans-serif;font-size:12px;line-height:30px;color:#EBE9E3;"><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Banking y conciliaciones</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Service Layer</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Ask AI</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Webhooks</span><span style="display:inline-block;border:1px solid #2E6B45;border-radius:999px;padding:0 12px;margin:0 6px 8px 0;white-space:nowrap;">Hoja de ruta en 5 pasos</span></td>
     </tr></table>
   </td></tr>
 
@@ -206,7 +207,7 @@
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#121614" style="border:1px solid #2A302C;border-radius:14px;background:#121614;"><tr><td class="f" style="padding:16px 16px 15px;font-family:'Poppins',Arial,sans-serif;">
             <div style="font-size:10px;letter-spacing:1.8px;color:#5DDB88;font-weight:500;margin-bottom:6px;">CONSULTORÍA / OTRAS ÁREAS</div>
             <div style="font-size:14px;line-height:19px;color:#EBE9E3;font-weight:500;margin-bottom:4px;">Consultores y quienes quieren conocer el tema</div>
-            <div style="font-size:12px;line-height:18px;color:#9AA197;">Un recorrido completo por el Feature Package 2608.</div>
+            <div style="font-size:12px;line-height:18px;color:#9AA197;">Un recorrido completo por la última versión.</div>
           </td></tr></table>
         </td>
       </tr>
