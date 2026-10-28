@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¿Qué hay de nuevo en SAP? · Webinar SAP Business One v26.1 · DOT Solutions</title>
-<meta name="description" content="Webinar en vivo, jueves 12 de noviembre. Conoce lo nuevo de SAP Business One v26.1: la plataforma web, integraciones más simples y analytics.">
-<meta property="og:title" content="¿Qué hay de nuevo en SAP? · Webinar SAP Business One v26.1">
+<title>SAP Business One 10 ¿Qué hay de nuevo? · Webinar DOT Solutions</title>
+<meta name="description" content="Webinar en vivo, jueves 12 de noviembre. SAP Business One 10.0 y su Feature Package 2608: Web Client, IA con Ask AI, informes y analítica, integración y cómo prepararse.">
+<meta property="og:title" content="SAP Business One 10 ¿Qué hay de nuevo? · Webinar DOT Solutions">
 <meta property="og:description" content="Webinar en vivo · Jueves 12 de noviembre · 09:30 CL · 09:30 AR · 07:30 PE · Google Meet">
 <meta name="theme-color" content="#0B0F0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -377,6 +377,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .hero h1{font-size:clamp(32px,calc((100vw - 720px) / 15),60px)!important}
 @media (max-width:920px){.hero h1{font-size:clamp(28px,calc((100vw - 110px) / 15),56px)!important}}
 @media (max-width:640px){.hero h1{font-size:clamp(26px,calc((100vw - 48px) / 15),44px)!important}}
+
+/* 4 pilares FP 2608 */
+.pillars .pillar{padding:26px}
+.pillars .pillar h3{font-size:clamp(18px,1.35vw,21px)!important;line-height:1.25}
+.pillars .pillar p{font-size:14px}
+.pillars{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media (max-width:1080px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:640px){.pillars{grid-template-columns:1fr!important}}
+.hero h1{font-size:clamp(30px,calc((100vw - 720px) / 16.5),56px)!important}
+@media (max-width:920px){.hero h1{font-size:clamp(26px,calc((100vw - 110px) / 16.5),52px)!important}}
+@media (max-width:640px){.hero h1{font-size:clamp(23px,calc((100vw - 48px) / 16.5),40px)!important}}
 /* sticky cta mobile */
 .m-cta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
 .m-cta .btn{width:100%;justify-content:center}
@@ -449,10 +460,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="hero-intro">
       <span class="pill" data-hero><span class="live-dot"></span>Webinar en vivo · 12 de noviembre</span>
       <h1>
-        <span class="l"><span>¿Qué hay de <span class="g">nuevo</span></span></span>
-        <span class="l"><span>en SAP?</span></span>
+        <span class="l"><span>SAP Business One 10</span></span>
+        <span class="l"><span class="g">¿Qué hay de nuevo?</span></span>
       </h1>
-      <p class="sub" data-hero><span class="chip">SAP Business One v26.1</span><small>Plataforma web, integraciones y analytics.</small></p>
+      <p class="sub" data-hero><span class="chip">Feature Package 2608</span><small>Un ERP más web, más inteligente y más conectado.</small></p>
     </div>
 
     <div class="hero-form" id="registro">
@@ -516,7 +527,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
               <option value="otro-erp" data-fit="other">Uso otro ERP</option>
             </select><span class="err">Selecciona una opción.</span></div>
           <div class="field full">
-            <label class="check"><input type="checkbox" id="diagnostico" name="diagnostico"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quiero que un Consultor Senior me contacte para agendar un <b style="color:var(--light);font-weight:500">diagnóstico estratégico</b>.</span></label>
+            <label class="check"><input type="checkbox" id="diagnostico" name="diagnostico"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quiero que un Consultor Senior me contacte para agendar un <b style="color:var(--light);font-weight:500">diagnóstico de preparación</b>.</span></label>
           </div>
           <div class="field full" id="consentField">
             <label class="check"><input type="checkbox" id="consent" name="consent" required><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Acepto la <a href="#" data-privacy>política de privacidad</a> y recibir comunicaciones de DOT Solutions sobre este webinar. <i style="color:var(--mic);font-style:normal">*</i></span></label>
@@ -545,15 +556,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     </div>
 
     <div class="hero-more">
-      <p class="lead" data-hero>Conoce la nueva versión de SAP Business One: la <b style="color:var(--light);font-weight:500">plataforma web</b> ya está lista, las <b style="color:var(--light);font-weight:500">integraciones</b> son más simples de construir y el <b style="color:var(--light);font-weight:500">análisis de datos</b> está más a mano. Te mostramos qué cambia para tu operación.</p>
+      <p class="lead" data-hero>SAP Business One 10.0 suma su Feature Package más amplio hasta la fecha: el <b style="color:var(--light);font-weight:500">Web Client</b> pasa a ser el entorno de trabajo principal, la <b style="color:var(--light);font-weight:500">IA generativa</b> llega con Ask AI y hay <b style="color:var(--light);font-weight:500">más control para integrar</b>. Te mostramos qué cambia y cómo prepararte.</p>
       <div class="hero-meta" data-hero>
         <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Jueves 12 de noviembre</b><span>2026</span></div></div>
         <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>09:30 CL · AR</b><span>07:30 PE</span></div></div>
         <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><b>Google Meet</b><span>Online · En vivo</span></div></div>
       </div>
       <div class="hosts" data-hero>
-        <div class="avatars"><span class="av av-c"><img src="assets/carlos.webp" alt="Carlos Gonzales"></span><span class="av av-a"><img src="assets/antonio.webp" alt="Antonio Sánchez"></span></div>
-        <div class="hosts-txt"><b>Carlos Gonzales</b> <span>Gerente Comercial SAP B1</span><br><b>Antonio Sánchez</b> <span>Jefe de Desarrollo</span></div>
+        <div class="avatars"><span class="av av-c"><img src="assets/carlos.webp" alt="Carlos Gonzales"></span><span class="av av-a"><img src="assets/juan.webp" alt="Juan Vásquez"></span></div>
+        <div class="hosts-txt"><b>Carlos Gonzales</b> <span>Gerente Comercial SAP B1</span><br><b>Juan Vásquez</b> <span>Gerente de Operaciones SAP</span></div>
       </div>
       <div class="cd-row" data-hero>
         <div class="countdown" id="countdown" aria-live="polite">
@@ -571,8 +582,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 <!-- ================= MARQUEE ================= -->
 <div class="marquee" aria-label="Novedades">
   <div class="marquee-track">
-    <span>Plataforma web</span><span>Integraciones más simples</span><span>Analytics</span><span>Webhooks</span><span>APIs</span><span>SAP Business One v26.1</span>
-    <span>Plataforma web</span><span>Integraciones más simples</span><span>Analytics</span><span>Webhooks</span><span>APIs</span><span>SAP Business One v26.1</span>
+    <span>Web Client</span><span>Ask AI</span><span>Informes y analítica</span><span>Service Layer</span><span>Webhooks</span><span>Banking</span><span>MRP</span><span>Proyectos</span><span>Hacia la versión 11</span>
+    <span>Web Client</span><span>Ask AI</span><span>Informes y analítica</span><span>Service Layer</span><span>Webhooks</span><span>Banking</span><span>MRP</span><span>Proyectos</span><span>Hacia la versión 11</span>
   </div>
 </div>
 
@@ -581,36 +592,36 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker" data-reveal>¿Para quién es este webinar?</span>
-      <h2 class="h2" data-reveal>Distintas miradas,<br><em>una nueva versión.</em></h2>
+      <h2 class="h2" data-reveal>Distintas miradas,<br><em>un ERP más conectado.</em></h2>
     </div>
     <div class="aud-grid">
       <article class="card glass grad-border spot" data-reveal>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 9l-2 2 2 2M15 9l2 2-2 2"/></svg></div>
         <span class="tag" style="display:block;margin-top:22px">TI / Sistemas</span>
         <h3>Directores, gerentes y jefes de TI</h3>
-        <p>Una plataforma más simple de integrar y operar.</p>
-        <ul><li>Integraciones más simples de construir y mantener</li><li>Webhooks: SAP B1 avisa a tus sistemas cuando ocurre un evento</li><li>SAP Business One disponible desde el navegador</li></ul>
+        <p>Nuevas formas de integrar y extender SAP B1.</p>
+        <ul><li>Service Layer con más control sobre webhooks y eventos</li><li>Bases para extensiones con IA y agentes</li><li>Qué revisar en add-ons basados en el SDK de escritorio</li></ul>
       </article>
       <article class="card glass grad-border spot" data-reveal>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
         <span class="tag" style="display:block;margin-top:22px">Finanzas / Contabilidad</span>
         <h3>Gerentes de Finanzas y Contabilidad</h3>
-        <p>Información más a mano para decidir.</p>
-        <ul><li>Análisis de datos más accesible</li><li>Acceso a SAP Business One desde donde estés</li><li>Menos tareas manuales con procesos conectados</li></ul>
+        <p>Informes y banca, ahora desde el navegador.</p>
+        <ul><li>Nuevo grupo Banking y conciliaciones en el Web Client</li><li>Del KPI al documento origen en tres clics</li><li>Exportación de informes a Excel</li></ul>
       </article>
       <article class="card glass grad-border spot" data-reveal>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div>
         <span class="tag" style="display:block;margin-top:22px">Operaciones / C-Level</span>
         <h3>Gerentes de Operaciones y C-Level</h3>
-        <p>Una versión pensada para crecer con agilidad.</p>
-        <ul><li>Qué trae la nueva versión y cómo aprovecharla</li><li>Equipos conectados desde el navegador</li><li>Evaluar el paso a la v26.1 con el respaldo de un Partner Gold</li></ul>
+        <p>Un ERP más web, más inteligente y más conectado.</p>
+        <ul><li>Ventas, compras, inventario y MRP desde el navegador</li><li>Ask AI: preguntas en lenguaje natural sobre tus datos</li><li>Una hoja de ruta hacia la versión 11</li></ul>
       </article>
       <article class="card glass grad-border spot" data-reveal>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></div>
         <span class="tag" style="display:block;margin-top:22px">Consultoría / Otras áreas</span>
         <h3>Consultores y quienes quieren conocer el tema</h3>
-        <p>Un recorrido claro por lo nuevo de SAP Business One.</p>
-        <ul><li>Plataforma web, integraciones y analytics</li><li>Webhooks como nueva vía de integración</li><li>Qué considerar al actualizar a la v26.1</li></ul>
+        <p>Un recorrido completo por el FP 2608.</p>
+        <ul><li>Web Client, IA, analítica e integración</li><li>Cómo conviven hoy escritorio y Web Client</li><li>Preguntas frecuentes antes de actualizar</li></ul>
       </article>
     </div>
   </div>
@@ -620,28 +631,34 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 <section id="beneficios" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kicker" data-reveal>Lo nuevo en SAP Business One v26.1</span>
-      <h2 class="h2" data-reveal>Tres novedades que cambian<br><em>el día a día.</em></h2>
-      <p class="lead" data-reveal>En el webinar recorremos lo más relevante de la nueva versión y cómo aprovecharlo en tu operación.</p>
+      <span class="kicker" data-reveal>Lo que vas a ver · FP 2608</span>
+      <h2 class="h2" data-reveal>Más web, más inteligente<br><em>y más conectado.</em></h2>
+      <p class="lead" data-reveal>Un Feature Package agrega funcionalidad nueva a la versión 10.0 sin esperar a la próxima versión mayor. El FP 2608 es el más amplio hasta la fecha y anticipa hacia dónde va SAP Business One.</p>
     </div>
     <div class="pillars">
       <article class="card glass grad-border spot pillar" data-reveal>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 6h.01M10 6h.01"/><path d="M8 21h8"/></svg></div>
-        <span class="tag" style="display:block;margin-top:22px">01 · Plataforma web</span>
-        <h3>SAP Business One, ahora en el navegador</h3>
-        <p>La plataforma web ya está lista. Tu equipo puede trabajar con SAP Business One desde el navegador, donde esté.</p>
+        <span class="tag" style="display:block;margin-top:22px">01 · Web Client</span>
+        <h3>Del complemento al entorno de trabajo principal</h3>
+        <p>Ventas, compras, inventario, MRP, proyectos, banca, CRM e informes desde el navegador, con nuevos asistentes para la operación diaria.</p>
       </article>
       <article class="card glass grad-border spot pillar" data-reveal>
-        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7.5"/></svg></div>
-        <span class="tag" style="display:block;margin-top:22px">02 · Integraciones</span>
-        <h3>Integrar es más simple</h3>
-        <p>Conectar SAP Business One con e-commerce, CRM, WMS y otras aplicaciones requiere menos esfuerzo. Incluye Webhooks: SAP B1 avisa a tus sistemas cuando ocurre un evento.</p>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+        <span class="tag" style="display:block;margin-top:22px">02 · Inteligencia artificial</span>
+        <h3>La IA generativa llega al Web Client</h3>
+        <p>Ask AI responde preguntas en lenguaje natural sobre el documento o dato que estás viendo, y ayuda a construir consultas.</p>
       </article>
       <article class="card glass grad-border spot pillar" data-reveal>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><rect x="7" y="11" width="3" height="5" rx="1"/><rect x="12" y="8" width="3" height="8" rx="1"/><rect x="17" y="5" width="3" height="11" rx="1"/></svg></div>
-        <span class="tag" style="display:block;margin-top:22px">03 · Analytics</span>
-        <h3>Más visibilidad sobre tu operación</h3>
-        <p>Revisamos las capacidades de análisis de la nueva versión para decidir con información más actualizada.</p>
+        <span class="tag" style="display:block;margin-top:22px">03 · Informes y analítica</span>
+        <h3>Del KPI al documento origen</h3>
+        <p>Informes con KPI agregados, detalle por transacción y acceso directo al documento que generó el dato, exportables a Excel.</p>
+      </article>
+      <article class="card glass grad-border spot pillar" data-reveal>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7.5"/></svg></div>
+        <span class="tag" style="display:block;margin-top:22px">04 · Desarrollo e integración</span>
+        <h3>Más control para integrar</h3>
+        <p>Service Layer con más control sobre webhooks y eventos, y nuevas bases para extensiones con IA y agentes.</p>
       </article>
     </div>
   </div>
@@ -651,18 +668,18 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 <section id="beneficios-empresa" style="padding-top:0">
   <div class="wrap benef">
     <div class="benef-head">
-      <span class="kicker" data-reveal>Beneficios para las empresas</span>
-      <h2 class="h2" data-reveal style="margin-top:16px">Lo que gana tu <em>operación.</em></h2>
-      <p class="lead" data-reveal style="margin-top:16px">Una versión pensada para trabajar más simple, más conectada y con mejor información.</p>
+      <span class="kicker" data-reveal>Cómo prepararse</span>
+      <h2 class="h2" data-reveal style="margin-top:16px">Hoja de ruta en <em>5 pasos.</em></h2>
+      <p class="lead" data-reveal style="margin-top:16px">Actualizar no siempre es lo primero. Lo primero es saber dónde está hoy tu sistema y qué depende del cliente de escritorio.</p>
       <a href="#registro" class="btn btn-primary" data-scroll data-reveal style="margin-top:28px">Reservar mi cupo
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <ul class="blist">
-          <li data-reveal><span class="n">01</span><div><h3>Trabajo desde cualquier lugar</h3><p>Con la plataforma web, tu equipo accede a SAP Business One desde el navegador.</p></div></li>
-          <li data-reveal><span class="n">02</span><div><h3>Integraciones más simples</h3><p>Menos esfuerzo para conectar SAP Business One con tus otras aplicaciones.</p></div></li>
-          <li data-reveal><span class="n">03</span><div><h3>Información más a mano</h3><p>Capacidades de análisis para decidir con datos más actualizados.</p></div></li>
-          <li data-reveal><span class="n">04</span><div><h3>Menos tareas manuales</h3><p>Procesos conectados que reducen la intervención de los usuarios.</p></div></li>
-          <li data-reveal><span class="n">05</span><div><h3>Un camino claro para actualizar</h3><p>El acompañamiento de DOT Solutions, Partner Gold de SAP, para pasar a la v26.1.</p></div></li>
+          <li data-reveal><span class="n">01</span><div><h3>Diagnóstico</h3><p>Versión, infraestructura, base de datos y licencias.</p></div></li>
+          <li data-reveal><span class="n">02</span><div><h3>Inventario técnico</h3><p>Add-ons, personalizaciones e integraciones.</p></div></li>
+          <li data-reveal><span class="n">03</span><div><h3>Piloto Web Client</h3><p>Un área y usuarios clave.</p></div></li>
+          <li data-reveal><span class="n">04</span><div><h3>Casos de uso IA</h3><p>Prioridades, datos y roles.</p></div></li>
+          <li data-reveal><span class="n">05</span><div><h3>Actualizar y formar</h3><p>Plan, pruebas y adopción.</p></div></li>
     </ul>
   </div>
 </section>
@@ -685,12 +702,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </article>
       <article class="spk glass grad-border" data-reveal>
-        <div class="spk-photo spk-a"><div class="rings"></div><img src="assets/antonio.webp" alt="Antonio Sánchez" loading="lazy"></div>
+        <div class="spk-photo spk-a"><div class="rings"></div><img src="assets/juan.webp" alt="Juan Vásquez" loading="lazy"></div>
         <div class="spk-body">
-          <span class="topic">Plataforma e integraciones</span>
-          <h3>Antonio Sánchez</h3>
-          <div class="role">Jefe de Desarrollo en Dot Solutions</div>
-          <p>Ingeniero en informática con más de 10 años de experiencia. Lidera el equipo de desarrollo y soporte TI de DOT: add-ons con SAP Business One SDK, APIs e integraciones con e-commerce, CRM y WMS que extienden el ERP.</p>
+          <span class="topic">Operación y adopción</span>
+          <h3>Juan Vásquez</h3>
+          <div class="role">Gerente de Operaciones SAP en Dot Solutions</div>
+          <p>Amplia experiencia en proyectos de cambio de sistemas de información, con liderazgo, conocimiento y control. Ha trabajado en múltiples empresas mejorando sus procesos clave con la experiencia adquirida.</p>
         </div>
       </article>
     </div>
@@ -704,7 +721,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="final-copy">
       <span class="pill" data-final><span class="live-dot"></span>Te esperamos en vivo</span>
       <h2 class="final-h" data-final>Reserva<br>tu <span class="g">cupo.</span></h2>
-      <p class="lead" data-final>Plataforma web, integraciones más simples y analytics en SAP Business One v26.1, con espacio de dudas y consultas con los expositores. Si quieres, también puedes pedir un diagnóstico estratégico con un Consultor Senior.</p>
+      <p class="lead" data-final>Web Client, IA, informes y analítica, integración y una hoja de ruta para prepararte, con espacio de preguntas con los expositores. Si quieres, también puedes pedir un diagnóstico de preparación con DOT Solutions.</p>
       <div class="hero-meta" data-final>
         <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Jueves 12 de noviembre</b><span>2026</span></div></div>
         <div class="meta glass"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>09:30 CL · AR</b><span>07:30 PE</span></div></div>
@@ -717,21 +734,21 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
     </div>
 
-    <div class="stage" id="stage" aria-label="Expositores: Carlos Gonzales y Antonio Sánchez">
+    <div class="stage" id="stage" aria-label="Expositores: Carlos Gonzales y Juan Vásquez">
       <div class="pulse"></div><div class="pulse p2"></div><div class="pulse p3"></div>
       <div class="ring" data-depth="0.15"></div>
       <div class="stage-card"></div>
       <div class="stage-people">
-        <img class="p-antonio" src="assets/antonio.webp" alt="Antonio Sánchez" data-depth="0.4" loading="lazy">
+        <img class="p-antonio" src="assets/juan.webp" alt="Juan Vásquez" data-depth="0.4" loading="lazy">
         <img class="p-carlos" src="assets/carlos.webp" alt="Carlos Gonzales" data-depth="0.4" loading="lazy">
       </div>
       <div class="stage-fade"></div>
       <div class="stage-names">
-        <div class="nm-a"><b>Antonio Sánchez</b><span>Jefe de Desarrollo</span></div>
+        <div class="nm-a"><b>Juan Vásquez</b><span>Gerente de Operaciones SAP</span></div>
         <div class="nm-c"><b>Carlos Gonzales</b><span>Gerente Comercial SAP B1</span></div>
       </div>
-      <div class="float-chip glass fc1"><i></i>Plataforma web lista</div>
-      <div class="float-chip glass fc2"><i></i>Integraciones más simples</div>
+      <div class="float-chip glass fc1"><i></i>Web Client: el nuevo centro de trabajo</div>
+      <div class="float-chip glass fc2"><i></i>Ask AI en el Web Client</div>
     </div>
   </div>
 </section>
@@ -798,7 +815,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 const CONFIG = {
   endpoint: '',
   event: {
-    title: '¿Qué hay de nuevo en SAP? · Webinar SAP Business One v26.1',
+    title: 'SAP Business One 10 ¿Qué hay de nuevo? · Webinar DOT Solutions',
     startUTC: '20261112T123000Z',   // 09:30 CL (UTC-3)
     endUTC:   '20261112T133000Z',
     start: new Date('2026-11-12T09:30:00-03:00'),
@@ -978,7 +995,7 @@ document.querySelectorAll('.spot').forEach(c => c.addEventListener('pointermove'
     delete data.website;
     const payload = { ...data, ...q, cargo: $('cargo').value, version_label: $('version').selectedOptions[0].textContent,
       telefono_completo: (data.prefijo + ' ' + data.telefono).trim(), diagnostico: $('diagnostico').checked, consent: true,
-      evento: 'webinar-sapb1-v26-1-novedades', submitted_at: new Date().toISOString(),
+      evento: 'webinar-sapb1-10-fp2608', submitted_at: new Date().toISOString(),
       tz: Intl.DateTimeFormat().resolvedOptions().timeZone, page: location.href.split('#')[0] };
     const btn = $('submitBtn'); btn.disabled = true; btn.firstChild.textContent = 'Enviando… ';
     try {
