@@ -1031,7 +1031,7 @@ document.querySelectorAll('.spot').forEach(c => c.addEventListener('pointermove'
       'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z','DTSTART:' + ev.startUTC,'DTEND:' + ev.endUTC,
       'SUMMARY:' + ev.title,'DESCRIPTION:' + ev.details,'LOCATION:' + ev.location,'END:VEVENT','END:VCALENDAR'].join('\r\n');
     const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
-    a.download = 'webinar-dot-sapb1-v26-1.ics'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    a.download = 'webinar-dot-sapb1-10.ics'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });
 })();
 

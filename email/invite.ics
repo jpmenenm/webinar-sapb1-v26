@@ -1,14 +1,14 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//DOT Solutions//Webinar SAP B1 v26.1//ES
+PRODID:-//DOT Solutions//Webinar SAP B1 10//ES
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:webinar-sapb1-v261-20261112@dotsolutions.io
-DTSTAMP:20261021T120000Z
+UID:webinar-sapb1-10-20261112@dotsolutions.io
+DTSTAMP:20261028T120000Z
 DTSTART:20261112T123000Z
 DTEND:20261112T133000Z
-SUMMARY:¿Qué hay de nuevo en SAP? · Webinar SAP Business One v26.1
-DESCRIPTION:Webinar en vivo de DOT Solutions. El enlace de Google Meet llega a tu correo.
+SUMMARY:SAP Business One 10 ¿Qué hay de nuevo? · Webinar DOT Solutions
+DESCRIPTION:Webinar en vivo de DOT Solutions con Carlos Gonzales y Juan Vásquez. El enlace de Google Meet está en tu correo de confirmación.
 LOCATION:Google Meet (online)
 END:VEVENT
 END:VCALENDAR
