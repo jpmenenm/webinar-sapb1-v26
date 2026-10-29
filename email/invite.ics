@@ -6,8 +6,8 @@ BEGIN:VEVENT
 UID:webinar-sapb1-10-20261112@dotsolutions.io
 DTSTAMP:20261028T120000Z
 DTSTART:20261112T123000Z
-DTEND:20261112T133000Z
-SUMMARY:SAP Business One 10 ¿Qué hay de nuevo? · Webinar DOT Solutions
+DTEND:20261112T131500Z
+SUMMARY:SAP Business One se prepara para la versión 11. ¿Y tu empresa? · Webinar DOT Solutions
 DESCRIPTION:Webinar en vivo de DOT Solutions con Carlos Gonzales y Juan Vásquez. El enlace de Google Meet está en tu correo de confirmación.
 LOCATION:Google Meet (online)
 END:VEVENT
