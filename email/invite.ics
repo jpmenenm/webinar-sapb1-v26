@@ -4,11 +4,16 @@ PRODID:-//DOT Solutions//Webinar SAP B1 10//ES
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:webinar-sapb1-10-20261112@dotsolutions.io
-DTSTAMP:20261028T120000Z
+DTSTAMP:20261030T120000Z
+SEQUENCE:1
 DTSTART:20261112T123000Z
 DTEND:20261112T131500Z
-SUMMARY:SAP Business One se prepara para la versión 11. ¿Y tu empresa? · Webinar DOT Solutions
-DESCRIPTION:Webinar en vivo de DOT Solutions con Carlos Gonzales y Juan Vásquez. El enlace de Google Meet está en tu correo de confirmación.
-LOCATION:Google Meet (online)
+SUMMARY:SAP Business One se prepara para la versión 11. ¿Y tu empresa? ·
+  Webinar DOT Solutions
+DESCRIPTION:Webinar en vivo de DOT Solutions con Carlos Gonzales y Juan Vá
+ squez.\n\nUnirse con Google Meet: https://meet.google.com/wnw-oqyn-cxt\nO 
+ por teléfono: (CL) +56 43 245 2070 · PIN 997 804 795 4244#
+LOCATION:https://meet.google.com/wnw-oqyn-cxt
+URL:https://meet.google.com/wnw-oqyn-cxt
 END:VEVENT
 END:VCALENDAR
